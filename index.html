@@ -3,1270 +3,757 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ═══════════════════════════════════════════════
-       ✏️  MODIFIER ICI : SEO & Meta
-  ════════════════════════════════════════════════ -->
-  <title>Villa Tokana Résidence— espace de loisir de vontovorona, Madagascar</title>
-  <meta name="description" content="Villa Taona, votre havre de paix à Nosy Be. Chambres de luxe, cuisine malgache raffinée, spa et activités nautiques." />
-  <meta name="keywords" content="hôtel Madagascar, Nosy Be, villa luxe, sejour Madagascar, plage Madagascar" />
-  <meta name="author" content="Villa Tokana" />
-  <meta property="og:title" content="Villa Tokana Résidence— espace de loisir de vontovorona" />
-  <meta property="og:description" content="Découvrez l'île Rouge autrement. Luxe, nature et authenticité." />
-  <meta property="og:type" content="website" />
-
-  <!-- Fonts -->
+  <title>TROIS A Soleil Foulpointe | Bungalows & Hôtel à Madagascar</title>
+  <meta name="description" content="TROIS A Soleil Foulpointe — hôtel de charme à Mahavelona Foulpointe, Madagascar. Bungalows pour familles et groupes, vue mer, nature tropicale." />
+  <meta name="keywords" content="hôtel Madagascar, bungalow Foulpointe, hébergement Mahavelona, vacances Madagascar, plage Madagascar" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
   <style>
-    /* ═══════════════════════════════════════════════
-       ✏️  MODIFIER ICI : Variables principales
-       Changez ces valeurs pour adapter à votre client
-    ════════════════════════════════════════════════ */
+    /* ===== CSS VARIABLES ===== */
     :root {
-      --brand-name:       "Villa Taona";
-      --color-gold:       #C9A96E;
-      --color-gold-light: #E8D5B0;
-      --color-dark:       #1A1209;
-      --color-dark-mid:   #2D2010;
-      --color-cream:      #F7F2EA;
-      --color-warm:       #E8DDD0;
-      --color-text:       #3D2E1A;
-      --color-muted:      #8A7560;
-      --font-display:     'Cormorant Garamond', Georgia, serif;
-      --font-body:        'Jost', sans-serif;
-      --radius:           4px;
-      --transition:       0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --ocean: #1a5f7a;
+      --ocean-deep: #0d3d52;
+      --ocean-light: #3a8fa8;
+      --sand: #e8d5a3;
+      --sand-light: #f5edd8;
+      --sand-dark: #c4a96b;
+      --white: #fdfaf5;
+      --dark: #1a1209;
+      --gold: #c9a227;
+      --coral: #e07b54;
+      --text: #2d2016;
+      --text-light: #6b5840;
+      --nav-h: 80px;
     }
 
-    /* ═══════════════════════════════════════════════
-       RESET & BASE
-    ════════════════════════════════════════════════ */
+    /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
-      font-family: var(--font-body);
-      background: var(--color-cream);
-      color: var(--color-text);
-      line-height: 1.7;
+      font-family: 'Jost', sans-serif;
+      background: var(--white);
+      color: var(--text);
       overflow-x: hidden;
     }
-    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
 
-    /* ═══════════════════════════════════════════════
-       UTILITIES
-    ════════════════════════════════════════════════ */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .section-label {
-      font-family: var(--font-body);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--color-gold);
-      display: block;
-      margin-bottom: 12px;
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 300;
-      line-height: 1.2;
-      color: var(--color-dark);
-    }
-    .section-title em {
-      font-style: italic;
-      color: var(--color-gold);
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 32px;
-      font-family: var(--font-body);
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      transition: var(--transition);
-      border-radius: var(--radius);
-    }
-    .btn-primary {
-      background: var(--color-gold);
-      color: #fff;
-    }
-    .btn-primary:hover { background: var(--color-dark); transform: translateY(-2px); }
-    .btn-outline {
-      background: transparent;
-      color: var(--color-gold);
-      border: 1.5px solid var(--color-gold);
-    }
-    .btn-outline:hover { background: var(--color-gold); color: #fff; }
-    .btn-white {
-      background: #fff;
-      color: var(--color-dark);
-    }
-    .btn-white:hover { background: var(--color-gold); color: #fff; }
+    /* ===== TYPOGRAPHY ===== */
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.15; }
+    h1 { font-size: clamp(2.8rem, 7vw, 6rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+    h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
+    p { font-size: 1rem; line-height: 1.8; color: var(--text-light); font-weight: 300; }
+    .serif-italic { font-family: 'Cormorant Garamond', serif; font-style: italic; }
 
-    /* Animate on scroll */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw;
+      transition: background 0.5s, backdrop-filter 0.5s, box-shadow 0.5s;
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal-left.visible { opacity: 1; transform: translateX(0); }
-    .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    nav.scrolled {
+      background: rgba(253, 250, 245, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 20px rgba(26,15,5,0.08);
+    }
+    .nav-logo {
+      display: flex; flex-direction: column; line-height: 1;
+    }
+    .nav-logo .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--white); letter-spacing: 0.04em; transition: color 0.5s; }
+    .nav-logo .sub { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sand); transition: color 0.5s; font-weight: 400; }
+    nav.scrolled .brand { color: var(--ocean-deep); }
+    nav.scrolled .sub { color: var(--sand-dark); }
+    .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+    .nav-links a { font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.85); font-weight: 400; transition: color 0.3s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: var(--sand); }
+    nav.scrolled .nav-links a { color: var(--text); }
+    nav.scrolled .nav-links a:hover { color: var(--ocean); }
+    .btn-reserver {
+      background: var(--gold); color: var(--dark) !important; padding: 0.6rem 1.4rem;
+      border-radius: 2px; font-weight: 500 !important; letter-spacing: 0.12em;
+      transition: background 0.3s, transform 0.2s !important;
+    }
+    .btn-reserver::after { display: none !important; }
+    .btn-reserver:hover { background: var(--sand-dark) !important; transform: translateY(-1px); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 1001; position: relative; }
+    .nav-toggle span { width: 26px; height: 1.5px; background: white; transition: all 0.3s; display: block; }
+    nav.scrolled .nav-toggle span { background: var(--dark); }
 
-    /* ═══════════════════════════════════════════════
-       HEADER / NAV
-    ════════════════════════════════════════════════ */
-    #header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      padding: 20px 0;
-      transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
-    }
-    #header.scrolled {
-      background: rgba(26,18,9,0.97);
-      padding: 12px 0;
-      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
-    }
-    #header .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      display: flex;
-      flex-direction: column;
-      line-height: 1;
-    }
-    /* ✏️ MODIFIER : Nom dans le logo */
-    .logo-name {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      font-weight: 400;
-      color: #fff;
-      letter-spacing: 0.08em;
-    }
-    .logo-tagline {
-      font-size: 0.62rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--color-gold);
-    }
-    nav ul {
-      display: flex;
-      gap: 36px;
-      align-items: center;
-    }
-    nav a {
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.8);
-      transition: color 0.3s;
-      position: relative;
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 1px;
-      background: var(--color-gold);
-      transition: width 0.3s ease;
-    }
-    nav a:hover, nav a:hover::after { color: var(--color-gold); width: 100%; }
-    nav .nav-cta { color: var(--color-gold) !important; border: 1px solid var(--color-gold); padding: 8px 20px; border-radius: var(--radius); }
-    nav .nav-cta:hover { background: var(--color-gold); color: #fff !important; }
-    nav .nav-cta::after { display: none; }
+    /* ===== SECTIONS ===== */
+    section { scroll-margin-top: var(--nav-h); }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 5vw; }
+    .section-label { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ocean-light); font-weight: 500; margin-bottom: 1rem; display: block; }
+    .section-divider { width: 50px; height: 1px; background: var(--gold); margin: 1.5rem 0 2.5rem; }
+    .section-divider.center { margin: 1.5rem auto 2.5rem; }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .hamburger span {
-      display: block;
-      width: 24px; height: 2px;
-      background: #fff;
-      transition: var(--transition);
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* Mobile nav */
-    .mobile-nav {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: var(--color-dark);
-      z-index: 999;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .mobile-nav.open { display: flex; opacity: 1; }
-    .mobile-nav a {
-      font-family: var(--font-display);
-      font-size: 2.5rem;
-      font-weight: 300;
-      color: #fff;
-      letter-spacing: 0.05em;
-    }
-    .mobile-nav a:hover { color: var(--color-gold); }
-
-    /* ═══════════════════════════════════════════════
-       HERO
-    ════════════════════════════════════════════════ */
-    #hero {
-      position: relative;
-      height: 100vh;
-      min-height: 600px;
-      display: flex;
-      align-items: center;
+    /* ===== HERO ===== */
+    #accueil {
+      position: relative; height: 100svh; min-height: 600px;
+      display: flex; align-items: center; justify-content: center;
       overflow: hidden;
     }
     .hero-bg {
-      position: absolute;
-      inset: 0;
-      /* ✏️ MODIFIER : Remplacez par l'URL de votre image principale */
-      background-image: url('https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1600&q=80');
+      position: absolute; inset: 0; z-index: 0;
+      background-color: #0d3d52;
+      background-image:
+        linear-gradient(to bottom, rgba(10,30,45,0.35) 0%, rgba(10,30,45,0.15) 40%, rgba(10,30,45,0.6) 100%),
+        url('https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/586217503_1382170856944157_8557924777708964393_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeGzLnnpG_EHQfWcDs5iEWCyzvdqHEGqmfjO92ocQaqZ-M_4MM9C_YD3jo3Yjp2x7AvJTVQ9PgN69TbO0F4O8QkA&_nc_ohc=5eCyFjzz5XoQ7kNvwEsh8ZW&_nc_oc=Adr8Qrz0JUzW3Vj8IEsozSmfB6-_l6MjM4SGc6inOnAfaDqpT1yQW-YoFVNsyxM9fh4&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=Y4TEITIDRcwgNY98EE0l5g&_nc_ss=7a32e&oh=00_AfzuVgGnM0wrbLwYGuB8tJNLZXXhbyvqXA9zYZFiAS3WHg&oe=69C81F6F');
       background-size: cover;
       background-position: center;
       transform: scale(1.05);
-      animation: heroZoom 8s ease forwards;
+      animation: heroZoom 20s ease-in-out infinite alternate;
     }
-    @keyframes heroZoom { to { transform: scale(1); } }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(26,18,9,0.75) 0%, rgba(26,18,9,0.3) 60%, transparent 100%);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 680px;
-      animation: heroFadeIn 1.2s ease 0.3s both;
-    }
-    @keyframes heroFadeIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes heroZoom { from { transform: scale(1.05); } to { transform: scale(1.12); } }
+    .hero-content { position: relative; z-index: 1; text-align: center; padding: 0 5vw; max-width: 900px; }
     .hero-eyebrow {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--color-gold);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 40px; height: 1px;
-      background: var(--color-gold);
+      font-size: 0.72rem; letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--sand); font-weight: 400; margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 1s 0.3s forwards;
     }
     .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      font-weight: 300;
-      line-height: 1.1;
-      color: #fff;
-      margin-bottom: 24px;
+      color: white; font-weight: 300; font-style: italic;
+      text-shadow: 0 2px 40px rgba(0,0,0,0.3);
+      opacity: 0; animation: fadeUp 1s 0.6s forwards;
     }
-    .hero-title em { font-style: italic; color: var(--color-gold-light); }
-    /* ✏️ MODIFIER : Slogan principal */
-    .hero-subtitle {
-      font-size: 1.05rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.8);
-      max-width: 440px;
-      margin-bottom: 40px;
-      line-height: 1.8;
+    .hero-title strong { font-style: normal; font-weight: 600; display: block; }
+    .hero-sub {
+      margin: 1.5rem auto 2.5rem; max-width: 540px;
+      color: rgba(255,255,255,0.82); font-size: 1.05rem; font-weight: 300;
+      opacity: 0; animation: fadeUp 1s 0.9s forwards;
     }
-    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-cta { opacity: 0; animation: fadeUp 1s 1.2s forwards; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block; padding: 1rem 2.4rem;
+      background: var(--gold); color: var(--dark);
+      font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500;
+      border-radius: 2px; transition: all 0.3s; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--sand-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,162,39,0.4); }
+    .btn-outline {
+      display: inline-block; padding: 1rem 2.4rem;
+      border: 1px solid rgba(255,255,255,0.6); color: white;
+      font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 400;
+      border-radius: 2px; transition: all 0.3s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: white; }
     .hero-scroll {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      color: rgba(255,255,255,0.6);
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      animation: bounce 2s infinite;
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: rgba(255,255,255,0.6); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+      opacity: 0; animation: fadeUp 1s 1.5s forwards;
     }
-    .hero-scroll::after {
-      content: '';
-      display: block;
-      width: 1px; height: 50px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
-    }
-    @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+    .scroll-line { width: 1px; height: 40px; background: rgba(255,255,255,0.4); animation: scrollLine 2s ease-in-out infinite; }
+    @keyframes scrollLine { 0%,100% { transform: scaleY(1); opacity: 0.4; } 50% { transform: scaleY(0.4); opacity: 1; } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* ═══════════════════════════════════════════════
-       STATS BAR
-    ════════════════════════════════════════════════ */
-    .stats-bar {
-      background: var(--color-dark);
-      padding: 32px 0;
+    /* ===== SERVICES STRIP ===== */
+    .services-strip {
+      background: var(--ocean-deep); padding: 3rem 5vw;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
     }
-    .stats-bar .container {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      text-align: center;
-    }
-    .stat-item {
-      padding: 16px 24px;
-      border-right: 1px solid rgba(201,169,110,0.2);
-    }
-    .stat-item:last-child { border-right: none; }
-    .stat-number {
-      font-family: var(--font-display);
-      font-size: 2.4rem;
-      font-weight: 300;
-      color: var(--color-gold);
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-      margin-top: 6px;
-    }
+    .service-item { text-align: center; }
+    .service-icon { width: 48px; height: 48px; margin: 0 auto 1rem; color: var(--sand); }
+    .service-icon svg { width: 100%; height: 100%; }
+    .service-item h4 { color: var(--sand); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; margin-bottom: 0.4rem; font-weight: 400; }
+    .service-item p { color: rgba(255,255,255,0.55); font-size: 0.82rem; line-height: 1.6; }
 
-    /* ═══════════════════════════════════════════════
-       À PROPOS
-    ════════════════════════════════════════════════ */
-    #about { padding: 120px 0; background: var(--color-cream); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .about-image-wrap {
-      position: relative;
-      height: 580px;
-    }
+    /* ===== ABOUT ===== */
+    #apropos { padding: 8rem 0; overflow: hidden; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .about-images { position: relative; height: 520px; }
     .about-img-main {
-      position: absolute;
-      top: 0; left: 0;
-      width: 80%; height: 85%;
-      overflow: hidden;
-      border-radius: var(--radius);
+      position: absolute; top: 0; left: 0; width: 75%; height: 85%;
+      object-fit: cover; border-radius: 2px;
+      box-shadow: 20px 20px 60px rgba(26,15,5,0.15);
     }
     .about-img-accent {
-      position: absolute;
-      bottom: 0; right: 0;
-      width: 55%; height: 50%;
-      overflow: hidden;
-      border-radius: var(--radius);
-      border: 6px solid var(--color-cream);
+      position: absolute; bottom: 0; right: 0; width: 55%; height: 55%;
+      object-fit: cover; border-radius: 2px;
+      border: 6px solid var(--white);
+      box-shadow: 10px 10px 40px rgba(26,15,5,0.12);
     }
     .about-badge {
-      position: absolute;
-      top: 40%; left: 65%;
-      background: var(--color-gold);
-      color: #fff;
-      width: 110px; height: 110px;
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      z-index: 3;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      line-height: 1.5;
-      box-shadow: 0 8px 30px rgba(201,169,110,0.4);
+      position: absolute; top: 55%; left: 55%; transform: translate(-50%, -50%);
+      width: 100px; height: 100px; background: var(--gold); border-radius: 50%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      z-index: 2; box-shadow: 0 8px 30px rgba(201,162,39,0.4);
     }
-    .about-badge strong {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      font-weight: 400;
-      display: block;
-      line-height: 1;
+    .about-badge span:first-child { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: var(--dark); line-height: 1; }
+    .about-badge span:last-child { font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dark); opacity: 0.8; }
+    .about-text { }
+    .values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+    .value-card { padding: 1.4rem; background: var(--sand-light); border-radius: 2px; border-left: 3px solid var(--gold); }
+    .value-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--ocean-deep); margin-bottom: 0.4rem; font-weight: 600; }
+    .value-card p { font-size: 0.82rem; line-height: 1.6; }
+
+    /* ===== BUNGALOWS ===== */
+    #hebergements { padding: 8rem 0; background: var(--sand-light); }
+    .bungalows-header { text-align: center; margin-bottom: 4rem; }
+    .bungalows-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .bungalow-card {
+      background: white; border-radius: 3px; overflow: hidden;
+      box-shadow: 0 4px 30px rgba(26,15,5,0.07);
+      transition: transform 0.4s, box-shadow 0.4s;
     }
-    .about-text { padding-left: 20px; }
-    .about-text p { color: var(--color-muted); margin: 20px 0; line-height: 1.9; }
-    .about-features {
+    .bungalow-card:hover { transform: translateY(-6px); box-shadow: 0 16px 50px rgba(26,15,5,0.12); }
+    .bungalow-img { position: relative; height: 240px; overflow: hidden; }
+    .bungalow-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+    .bungalow-card:hover .bungalow-img img { transform: scale(1.06); }
+    .bungalow-tag {
+      position: absolute; top: 1rem; left: 1rem;
+      background: var(--gold); color: var(--dark);
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 0.3rem 0.8rem; border-radius: 2px; font-weight: 500;
+    }
+    .bungalow-body { padding: 1.8rem; }
+    .bungalow-body h3 { color: var(--ocean-deep); margin-bottom: 0.6rem; font-size: 1.4rem; }
+    .bungalow-body p { font-size: 0.88rem; margin-bottom: 1.2rem; }
+    .bungalow-features { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.5rem; }
+    .feat-tag { font-size: 0.72rem; padding: 0.3rem 0.7rem; background: var(--sand-light); color: var(--text); border-radius: 20px; letter-spacing: 0.05em; }
+    .bungalow-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--sand-light); padding-top: 1.2rem; }
+    .bungalow-capacity { font-size: 0.82rem; color: var(--text-light); }
+    .bungalow-capacity strong { color: var(--ocean); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; }
+    .btn-sm {
+      padding: 0.55rem 1.2rem; background: var(--ocean); color: white;
+      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+      border-radius: 2px; transition: background 0.3s;
+    }
+    .btn-sm:hover { background: var(--ocean-deep); }
+
+    /* ===== GALERIE ===== */
+    #galerie { padding: 8rem 0; }
+    .galerie-header { text-align: center; margin-bottom: 3.5rem; }
+    .galerie-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 32px;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(3, 200px);
+      gap: 8px;
     }
-    .feature-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.85rem;
-      color: var(--color-text);
-    }
-    .feature-item::before {
-      content: '✦';
-      color: var(--color-gold);
-      font-size: 0.7rem;
-      flex-shrink: 0;
-    }
+    .gal-item { overflow: hidden; border-radius: 2px; position: relative; cursor: pointer; }
+    .gal-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+    .gal-item:hover img { transform: scale(1.08); }
+    .gal-item .overlay { position: absolute; inset: 0; background: rgba(13,61,82,0); transition: background 0.4s; display: flex; align-items: center; justify-content: center; }
+    .gal-item:hover .overlay { background: rgba(13,61,82,0.35); }
+    .g1 { grid-column: span 5; grid-row: span 2; }
+    .g2 { grid-column: span 4; grid-row: span 1; }
+    .g3 { grid-column: span 3; grid-row: span 1; }
+    .g4 { grid-column: span 4; grid-row: span 1; }
+    .g5 { grid-column: span 3; grid-row: span 1; }
+    .g6 { grid-column: span 4; grid-row: span 1; }
+    .g7 { grid-column: span 5; grid-row: span 1; }
+    .g8 { grid-column: span 3; grid-row: span 1; }
 
-    /* ═══════════════════════════════════════════════
-       SERVICES
-    ════════════════════════════════════════════════ */
-    #services {
-      padding: 120px 0;
-      background: var(--color-dark);
-      position: relative;
-      overflow: hidden;
-    }
-    #services::before {
-      content: '';
-      position: absolute;
-      top: -100px; right: -100px;
-      width: 500px; height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%);
-    }
-    #services .section-header {
-      text-align: center;
-      margin-bottom: 70px;
-    }
-    #services .section-title { color: #fff; }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .service-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(201,169,110,0.15);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: var(--transition);
-      cursor: default;
-    }
-    .service-card:hover { transform: translateY(-8px); border-color: rgba(201,169,110,0.4); background: rgba(255,255,255,0.07); }
-    .service-img {
-      height: 220px;
-      overflow: hidden;
-      position: relative;
-    }
-    .service-img img { transition: transform 0.6s ease; }
-    .service-card:hover .service-img img { transform: scale(1.08); }
-    .service-body { padding: 28px; }
-    .service-icon {
-      font-size: 1.5rem;
-      margin-bottom: 14px;
-    }
-    .service-name {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      font-weight: 400;
-      color: #fff;
-      margin-bottom: 10px;
-    }
-    .service-desc {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.8;
-    }
-    .service-price {
-      margin-top: 20px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(201,169,110,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .price-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
-    .price-value { font-family: var(--font-display); font-size: 1.3rem; color: var(--color-gold); }
+    /* ===== TESTIMONIALS ===== */
+    .testimonials { padding: 6rem 0; background: var(--ocean-deep); }
+    .testimonials .container { text-align: center; }
+    .testimonials .section-label { color: var(--sand); }
+    .testimonials h2 { color: white; margin-bottom: 3rem; }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .testi-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; padding: 2rem; text-align: left; }
+    .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+    .testi-card p { color: rgba(255,255,255,0.72); font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; line-height: 1.7; }
+    .testi-author { margin-top: 1.5rem; display: flex; align-items: center; gap: 0.8rem; }
+    .testi-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--ocean-light); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; }
+    .testi-info strong { display: block; color: var(--sand); font-size: 0.85rem; font-weight: 500; }
+    .testi-info span { color: rgba(255,255,255,0.45); font-size: 0.75rem; }
 
-    /* ═══════════════════════════════════════════════
-       GALERIE
-    ════════════════════════════════════════════════ */
-    #gallery { padding: 120px 0; background: var(--color-warm); }
-    #gallery .section-header { margin-bottom: 50px; }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: 260px 260px;
-      gap: 14px;
+    /* ===== CONTACT ===== */
+    #contact { padding: 8rem 0; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .contact-info h2 { margin-bottom: 0.5rem; }
+    .contact-info > p { margin-bottom: 3rem; }
+    .contact-items { display: flex; flex-direction: column; gap: 1.8rem; }
+    .contact-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+    .contact-icon { width: 48px; height: 48px; background: var(--sand-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-icon svg { width: 22px; height: 22px; stroke: var(--ocean); }
+    .val-icon { width: 18px; height: 18px; vertical-align: middle; margin-right: 0.4rem; stroke: var(--ocean); }
+    .gal-zoom { width: 28px; height: 28px; opacity: 0; transition: opacity 0.4s; }
+    .gal-item:hover .gal-zoom { opacity: 1; }
+    .contact-item-text strong { display: block; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ocean); margin-bottom: 0.3rem; font-family: 'Jost', sans-serif; font-weight: 500; }
+    .contact-item-text a, .contact-item-text p { color: var(--text); font-size: 0.95rem; }
+    .contact-item-text a:hover { color: var(--ocean); }
+    .map-embed { margin-top: 2.5rem; border-radius: 3px; overflow: hidden; border: 1px solid var(--sand); }
+    .map-embed iframe { width: 100%; height: 220px; border: none; }
+    /* FORM */
+    .contact-form-wrap h3 { margin-bottom: 0.5rem; }
+    .contact-form-wrap > p { margin-bottom: 2rem; }
+    .form-group { margin-bottom: 1.4rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    label { display: block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ocean); margin-bottom: 0.5rem; font-weight: 500; }
+    input, textarea, select {
+      width: 100%; padding: 0.85rem 1rem; border: 1px solid #d9cdb8;
+      background: var(--sand-light); border-radius: 2px;
+      font-family: 'Jost', sans-serif; font-size: 0.92rem; color: var(--text);
+      transition: border-color 0.3s, box-shadow 0.3s; outline: none;
     }
-    .gallery-item {
-      overflow: hidden;
-      border-radius: var(--radius);
-      position: relative;
-      cursor: pointer;
+    input:focus, textarea:focus, select:focus { border-color: var(--ocean-light); box-shadow: 0 0 0 3px rgba(58,143,168,0.12); }
+    textarea { resize: vertical; min-height: 120px; }
+    .btn-submit {
+      width: 100%; padding: 1rem; background: var(--ocean); color: white;
+      font-family: 'Jost', sans-serif; font-size: 0.82rem; letter-spacing: 0.2em;
+      text-transform: uppercase; font-weight: 500; border: none; border-radius: 2px;
+      cursor: pointer; transition: background 0.3s, transform 0.2s;
     }
-    .gallery-item:first-child { grid-column: span 2; grid-row: span 2; }
-    .gallery-item:nth-child(4) { grid-column: span 2; }
-    .gallery-item img { transition: transform 0.6s ease; height: 100%; }
-    .gallery-item:hover img { transform: scale(1.07); }
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(26,18,9,0);
-      transition: background 0.4s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .gallery-item:hover .gallery-overlay { background: rgba(26,18,9,0.35); }
-    .gallery-zoom {
-      color: #fff;
-      font-size: 1.5rem;
-      opacity: 0;
-      transform: scale(0.5);
-      transition: all 0.3s ease;
-    }
-    .gallery-item:hover .gallery-zoom { opacity: 1; transform: scale(1); }
+    .btn-submit:hover { background: var(--ocean-deep); transform: translateY(-1px); }
+    .form-success { display: none; text-align: center; padding: 2rem; background: #e6f4f1; border-radius: 2px; color: #1a6b55; }
 
-    /* Lightbox */
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.95);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-    }
-    .lightbox.open { display: flex; }
-    .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: var(--radius); }
-    .lightbox-close {
-      position: absolute;
-      top: 24px; right: 32px;
-      font-size: 2rem;
-      color: #fff;
-      cursor: pointer;
-      line-height: 1;
-    }
+    /* ===== FOOTER ===== */
+    footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 4rem 5vw 2rem; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+    .footer-brand .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--sand); font-weight: 600; margin-bottom: 0.3rem; }
+    .footer-brand .sub { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; font-weight: 400; }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.8; max-width: 280px; }
+    .footer-col h4 { font-family: 'Cormorant Garamond', serif; color: var(--sand); font-size: 1.1rem; font-weight: 400; margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a { font-size: 0.85rem; transition: color 0.3s; }
+    .footer-col ul a:hover { color: var(--sand); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-bottom p { font-size: 0.78rem; }
 
-    /* ═══════════════════════════════════════════════
-       AVIS CLIENTS
-    ════════════════════════════════════════════════ */
-    #reviews { padding: 120px 0; background: var(--color-cream); }
-    #reviews .section-header { text-align: center; margin-bottom: 60px; }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-    .review-card {
-      background: #fff;
-      border: 1px solid rgba(201,169,110,0.15);
-      border-radius: var(--radius);
-      padding: 36px;
-      position: relative;
-      transition: var(--transition);
-    }
-    .review-card:hover { box-shadow: 0 20px 50px rgba(201,169,110,0.15); transform: translateY(-4px); }
-    .review-quote {
-      font-family: var(--font-display);
-      font-size: 4rem;
-      color: var(--color-gold);
-      line-height: 1;
-      margin-bottom: 10px;
-      opacity: 0.5;
-    }
-    .review-text {
-      font-size: 0.95rem;
-      color: var(--color-muted);
-      line-height: 1.9;
-      font-style: italic;
-      margin-bottom: 28px;
-    }
-    .review-stars { color: var(--color-gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 16px; }
-    .review-author {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      border-top: 1px solid var(--color-warm);
-      padding-top: 20px;
-    }
-    .review-avatar {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      overflow: hidden;
-      flex-shrink: 0;
-      background: var(--color-warm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-    }
-    .review-name { font-weight: 500; font-size: 0.9rem; }
-    .review-location { font-size: 0.75rem; color: var(--color-muted); }
-
-    /* ═══════════════════════════════════════════════
-       CONTACT
-    ════════════════════════════════════════════════ */
-    #contact { padding: 120px 0; background: var(--color-dark); }
-    #contact .section-header { margin-bottom: 60px; }
-    #contact .section-title { color: #fff; }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 70px;
-    }
-    .contact-info { color: rgba(255,255,255,0.7); }
-    .contact-info p { font-size: 0.95rem; line-height: 1.9; margin-bottom: 36px; }
-    .contact-items { display: flex; flex-direction: column; gap: 20px; }
-    .contact-item {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    .contact-icon {
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      background: rgba(201,169,110,0.15);
-      border: 1px solid rgba(201,169,110,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-      color: var(--color-gold);
-    }
-    .contact-item-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-gold); margin-bottom: 4px; }
-    .contact-item-value { color: rgba(255,255,255,0.8); font-size: 0.95rem; }
-    .whatsapp-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #25D366;
-      color: #fff;
-      padding: 14px 28px;
-      border-radius: var(--radius);
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-top: 28px;
-      transition: var(--transition);
-    }
-    .whatsapp-btn:hover { background: #1ebe5d; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37,211,102,0.3); }
-    
-    /* Formulaire */
-    .contact-form { display: flex; flex-direction: column; gap: 18px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .form-group { display: flex; flex-direction: column; gap: 8px; }
-    .form-group label {
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--color-gold);
-    }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(201,169,110,0.2);
-      border-radius: var(--radius);
-      padding: 14px 18px;
-      color: #fff;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      transition: border-color 0.3s;
-      outline: none;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus { border-color: var(--color-gold); }
-    .form-group textarea { height: 130px; resize: vertical; }
-    .form-group select option { background: var(--color-dark-mid); }
-    .form-submit-btn {
-      align-self: flex-start;
-      background: var(--color-gold);
-      color: #fff;
-      border: none;
-      padding: 15px 36px;
-      font-family: var(--font-body);
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      border-radius: var(--radius);
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .form-submit-btn:hover { background: #fff; color: var(--color-dark); transform: translateY(-2px); }
-    .form-success {
-      display: none;
-      background: rgba(37,211,102,0.1);
-      border: 1px solid rgba(37,211,102,0.3);
-      color: #25D366;
-      padding: 16px 20px;
-      border-radius: var(--radius);
-      font-size: 0.9rem;
-      text-align: center;
-    }
-
-    /* Map */
-    .map-wrapper {
-      margin-top: 70px;
-      border-radius: var(--radius);
-      overflow: hidden;
-      height: 380px;
-      border: 1px solid rgba(201,169,110,0.2);
-    }
-    .map-wrapper iframe { width: 100%; height: 100%; border: none; }
-
-    /* ═══════════════════════════════════════════════
-       FOOTER
-    ════════════════════════════════════════════════ */
-    #footer {
-      background: var(--color-dark-mid);
-      border-top: 1px solid rgba(201,169,110,0.1);
-      padding: 60px 0 30px;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 50px;
-      padding-bottom: 50px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      margin-bottom: 30px;
-    }
-    .footer-brand .logo-name { font-size: 1.8rem; }
-    .footer-brand p {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.4);
-      margin: 16px 0 24px;
-      line-height: 1.8;
-      max-width: 280px;
-    }
-    .social-links { display: flex; gap: 12px; }
-    .social-link {
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      border: 1px solid rgba(201,169,110,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.5);
-      transition: var(--transition);
-    }
-    .social-link:hover { background: var(--color-gold); border-color: var(--color-gold); color: #fff; }
-    .footer-col h4 {
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-gold);
-      margin-bottom: 20px;
-    }
-    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
-    .footer-col a {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.45);
-      transition: color 0.3s;
-    }
-    .footer-col a:hover { color: rgba(255,255,255,0.9); }
-    .footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.3);
-    }
-
-    /* ═══════════════════════════════════════════════
-       WHATSAPP FLOATING BUTTON
-    ════════════════════════════════════════════════ */
+    /* ===== FLOATING WHATSAPP ===== */
     .whatsapp-float {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: #25D366;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      box-shadow: 0 6px 30px rgba(37,211,102,0.4);
-      z-index: 999;
-      transition: var(--transition);
-      animation: pulse-wa 2.5s infinite;
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #25D366; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.5); cursor: pointer;
+      animation: pulse-wa 2.5s ease-in-out infinite;
+      transition: transform 0.3s;
     }
-    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 10px 40px rgba(37,211,102,0.5); }
-    @keyframes pulse-wa {
-      0%, 100% { box-shadow: 0 6px 30px rgba(37,211,102,0.4); }
-      50% { box-shadow: 0 6px 30px rgba(37,211,102,0.4), 0 0 0 12px rgba(37,211,102,0.08); }
+    .whatsapp-float:hover { transform: scale(1.1); animation: none; }
+    .whatsapp-float svg { width: 30px; height: 30px; fill: white; }
+    @keyframes pulse-wa { 0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); } 50% { box-shadow: 0 4px 35px rgba(37,211,102,0.8); } }
+    .whatsapp-tooltip {
+      position: absolute; right: calc(100% + 12px); top: 50%; transform: translateY(-50%);
+      background: var(--dark); color: white; font-size: 0.75rem; white-space: nowrap;
+      padding: 0.5rem 0.9rem; border-radius: 4px; opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    .reveal { opacity: 1; transform: none; transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.hidden { opacity: 0; transform: translateY(30px); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ===== MOBILE MENU ===== */
+    .nav-menu {
+      display: flex;
+    }
+    @media (max-width: 900px) {
+      .nav-toggle { display: flex; }
+      .nav-menu {
+        display: none;
+        position: fixed; inset: 0;
+        background: var(--ocean-deep);
+        flex-direction: column;
+        align-items: center; justify-content: center;
+        gap: 2.5rem;
+        z-index: 1000;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-links { flex-direction: column; gap: 2rem; align-items: center; }
+      .nav-links a { font-size: 1.1rem; color: white !important; letter-spacing: 0.15em; }
+      .btn-reserver { color: var(--dark) !important; }
     }
 
-    /* ═══════════════════════════════════════════════
-       RESPONSIVE
-    ════════════════════════════════════════════════ */
-    @media (max-width: 1024px) {
-      nav ul { display: none; }
-      .hamburger { display: flex; }
-      .about-grid { grid-template-columns: 1fr; gap: 50px; }
-      .about-image-wrap { height: 400px; }
-      .about-text { padding-left: 0; }
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .contact-grid { grid-template-columns: 1fr; gap: 50px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
+      .bungalows-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 768px) {
-      .stats-bar .container { grid-template-columns: repeat(2, 1fr); }
-      .stat-item:nth-child(2) { border-right: none; }
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-      }
-      .gallery-item:first-child { grid-column: span 2; height: 250px; }
-      .gallery-item:nth-child(4) { grid-column: span 1; }
-      .gallery-item { height: 180px; }
-      .reviews-grid { grid-template-columns: 1fr; }
+    @media (max-width: 860px) {
+      .services-strip { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-images { height: 350px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .galerie-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+      .g1,.g2,.g3,.g4,.g5,.g6,.g7,.g8 { grid-column: span 1; grid-row: span 1; height: 200px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .bungalows-grid { grid-template-columns: 1fr; }
+      .services-strip { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
       .form-row { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-    }
-    @media (max-width: 480px) {
-      .hero-buttons { flex-direction: column; }
-      .services-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr; }
-      .gallery-item:first-child { grid-column: span 1; }
-      .gallery-item:nth-child(4) { grid-column: span 1; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════════
-       HEADER
-  ════════════════════════════════════════════════ -->
-  <header id="header">
-    <div class="container">
-      <a href="#hero" class="logo">
-        <!-- ✏️ MODIFIER : Nom + tagline -->
-        <span class="logo-name">Villa Tokana</span>
-        <span class="logo-tagline">Vontovorana · Madagascar</span>
-      </a>
-      <nav>
-        <ul>
-          <li><a href="#about">À Propos</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#gallery">Galerie</a></li>
-          <li><a href="#reviews">Avis</a></li>
-          <!-- ✏️ MODIFIER : Lien WhatsApp numéro -->
-          <li><a href="#contact" class="nav-cta">Réserver</a></li>
-        </ul>
-      </nav>
-      <div class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
-        <span></span><span></span><span></span>
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <a href="#accueil" class="nav-logo">
+      <span class="brand">TROIS A Soleil</span>
+      <span class="sub">Foulpointe · Madagascar</span>
+    </a>
+    <div class="nav-menu" id="navMenu">
+      <div class="nav-links">
+        <a href="#accueil">Accueil</a>
+        <a href="#apropos">À Propos</a>
+        <a href="#hebergements">Bungalows</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#contact">Contact</a>
+        <a href="https://wa.me/261341810248" target="_blank" class="btn-reserver">Réserver</a>
       </div>
     </div>
-  </header>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-  <!-- Mobile Nav -->
-  <div class="mobile-nav" id="mobileNav">
-    <a href="#about" onclick="closeMobileNav()">À Propos</a>
-    <a href="#services" onclick="closeMobileNav()">Services</a>
-    <a href="#gallery" onclick="closeMobileNav()">Galerie</a>
-    <a href="#reviews" onclick="closeMobileNav()">Avis</a>
-    <a href="#contact" onclick="closeMobileNav()">Contact</a>
-  </div>
-
-  <!-- ═══════════════════════════════════════════════
-       HERO
-  ════════════════════════════════════════════════ -->
-  <section id="hero">
-    <!-- ✏️ MODIFIER : style="background-image: url('VOTRE_IMAGE.jpg')" -->
+  <!-- HERO -->
+  <section id="accueil">
     <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="container">
-      <div class="hero-content">
-        <!-- ✏️ MODIFIER : Localisation -->
-        <div class="hero-eyebrow">Nosy Be, Madagascar</div>
-        <!-- ✏️ MODIFIER : Titre principal -->
-        <h1 class="hero-title">L'Océan Indien<br><em>à votre portée</em></h1>
-        <!-- ✏️ MODIFIER : Sous-titre -->
-        <p class="hero-subtitle">Un refuge de luxe où les vagues bercent vos journées et les étoiles illuminent vos nuits. Vivez l'île autrement.</p>
-        <div class="hero-buttons">
-          <!-- ✏️ MODIFIER : Lien WhatsApp → remplacez 261320000000 par votre numéro -->
-          <a href="https://wa.me/261320000000?text=Bonjour,%20je%20souhaite%20réserver%20une%20chambre" class="btn btn-primary" target="_blank">
-            📅 Réserver maintenant
-          </a>
-          <a href="#services" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.5)">
-            Découvrir nos offres
-          </a>
-        </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">✦ Mahavelona · Foulpointe · Madagascar ✦</p>
+      <h1 class="hero-title">
+        <em>L'Évasion</em>
+        <strong>Au Bord de l'Océan Indien</strong>
+      </h1>
+      <p class="hero-sub">Des bungalows spacieux et chaleureux, nichés entre lagon turquoise et cocotiers, pour des séjours inoubliables en famille ou entre amis.</p>
+      <div class="hero-cta">
+        <a href="https://wa.me/261341810248?text=Bonjour%2C%20je%20souhaite%20réserver%20un%20bungalow%20à%20TROIS%20A%20Soleil%20Foulpointe" target="_blank" class="btn-primary">Réserver maintenant</a>
+        <a href="#hebergements" class="btn-outline">Voir nos bungalows</a>
       </div>
     </div>
-    <div class="hero-scroll">Défiler</div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Défiler</span>
+    </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════
-       STATS
-  ════════════════════════════════════════════════ -->
-  <div class="stats-bar">
-    <div class="container">
-      <!-- ✏️ MODIFIER : Statistiques -->
-      <div class="stat-item reveal"><div class="stat-number">12+</div><div class="stat-label">Années d'expérience</div></div>
-      <div class="stat-item reveal"><div class="stat-number">48</div><div class="stat-label">Chambres & Suites</div></div>
-      <div class="stat-item reveal"><div class="stat-number">4.9</div><div class="stat-label">Note moyenne</div></div>
-      <div class="stat-item reveal"><div class="stat-number">2500+</div><div class="stat-label">Clients satisfaits</div></div>
+    <div class="services-strip">
+    <div class="service-item reveal">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c2-2 4-3 6-3s4 2 6 2 4-1 6-3"/><path d="M3 12c2-2 4-3 6-3s4 2 6 2 4-1 6-3"/><path d="M21 7c-2 2-4 3-6 3s-4-2-6-2-4 1-6 3"/></svg>
+      </div>
+      <h4>Plage Privée</h4>
+      <p>Accès direct à la plage de Foulpointe, eaux cristallines</p>
+    </div>
+    <div class="service-item reveal reveal-delay-1">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      </div>
+      <h4>Cadre Naturel</h4>
+      <p>Environnement tropical préservé, faune et flore locales</p>
+    </div>
+    <div class="service-item reveal reveal-delay-2">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <h4>Grands Bungalows</h4>
+      <p>Capacité 5 personnes et plus, idéal familles et groupes</p>
+    </div>
+    <div class="service-item reveal reveal-delay-3">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+      </div>
+      <h4>Restauration</h4>
+      <p>Saveurs malgaches authentiques, produits locaux frais</p>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════════
-       À PROPOS
-  ════════════════════════════════════════════════ -->
-  <section id="about">
+  <!-- À PROPOS -->
+  <section id="apropos">
     <div class="container">
       <div class="about-grid">
-        <div class="about-image-wrap reveal-left">
-          <!-- ✏️ MODIFIER : URLs des images -->
-          <div class="about-img-main">
-            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80" alt="Villa Taona - Vue principale" loading="lazy" />
-          </div>
-          <div class="about-img-accent">
-            <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80" alt="Villa Taona - Intérieur" loading="lazy" />
-          </div>
-          <!-- ✏️ MODIFIER : Badge anniversaire -->
+        <div class="about-images reveal">
+          <img class="about-img-main"
+            src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/605633681_1410688090759100_2928498703987762567_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEuZ518dgaw86OxLCB3b5aGN0cIqxj6lTc3RwirGPqVN4bySKrITFmq6uxw7-fFX-27jtkRzziBbvU2xGrW441a&_nc_ohc=0RK0SDWVm14Q7kNvwGv5dXD&_nc_oc=AdoCaUyBazEtSNqsSUXZl5Z9vuKL9X_mYmNyRWuHXjkBec5yn6aON9271sH9QUlNuG8&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=Q6S3g6i3gIalZY_J576ODg&_nc_ss=7a32e&oh=00_Afz8tdbTar81OvWS3O_jpQhZY25Zs5rifbEHian04Aft_Q&oe=69C82B6B"
+            alt="Bungalow TROIS A Soleil Foulpointe" />
+          <img class="about-img-accent"
+            src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/586211534_1382171346944108_5206956688517314165_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeH2p2WdKQAYyYj9Etg_VfbY8tAWuaoTRPTy0Ba5qhNE9OSODiOFPZd9-H1QF_iJqtddZP1LKMcHBQWu5ewJwMWe&_nc_ohc=tv-X3ZpkzW8Q7kNvwGoRWHH&_nc_oc=Adr-EEIN_ZBj0xM_ags1MA15Z_2-HD2Rpd8hqGLA7Zr45UW3ihWHHi-WBw1eHImz0Qg&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=Pr1Xy8XNcdSevdpI-Xw38g&_nc_ss=7a32e&oh=00_AfwHjJRGUX6tzUSgxZkiy5WPvAPRmTYNg6rqI5-RQ_uoQQ&oe=69C82FAF"
+            alt="Plage de Foulpointe Madagascar" />
           <div class="about-badge">
-            <strong>12</strong>
-            Ans de<br>passion
+            <span>★</span>
+            <span>Hôtel de Charme</span>
           </div>
         </div>
-        <div class="about-text reveal-right">
+        <div class="about-text reveal reveal-delay-2">
           <span class="section-label">Notre Histoire</span>
-          <!-- ✏️ MODIFIER : Titre section -->
-          <h2 class="section-title">Un art de vivre<br><em>malgache</em></h2>
-          <!-- ✏️ MODIFIER : Description -->
-          <p>Fondée en 2012, Villa Taona est née d'une passion pour l'hospitalité authentique et la beauté sauvage de Nosy Be. Chaque détail de notre établissement a été conçu pour vous offrir une immersion totale dans la culture malgache, tout en vous garantissant un confort irréprochable.</p>
-          <p>Notre équipe locale met tout en œuvre pour que votre séjour dépasse vos attentes — qu'il s'agisse d'une lune de miel, d'un voyage d'affaires ou d'une escapade en famille.</p>
-          <div class="about-features">
-            <!-- ✏️ MODIFIER : Caractéristiques clés -->
-            <div class="feature-item">Vue mer depuis toutes les chambres</div>
-            <div class="feature-item">Restaurant gastronomique</div>
-            <div class="feature-item">Spa & bien-être</div>
-            <div class="feature-item">Activités nautiques</div>
-            <div class="feature-item">WiFi haut débit</div>
-            <div class="feature-item">Transfert aéroport</div>
+          <h2>Bienvenue au<br /><em>TROIS A Soleil</em></h2>
+          <div class="section-divider"></div>
+          <p>Situé à Mahavelona Foulpointe, sur la côte est de Madagascar, notre hôtel vous accueille dans un cadre paradisiaque où la mer, le soleil et la nature tropicale se conjuguent pour offrir un séjour d'exception.</p>
+          <p style="margin-top: 1rem;">Que vous veniez en famille, entre amis ou en couple, nos bungalows spacieux sont conçus pour vous garantir confort, intimité et un contact authentique avec la beauté de Madagascar.</p>
+          <div class="values-grid">
+            <div class="value-card">
+              <h4>
+                <svg class="val-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c2-2 4-3 6-3s4 2 6 2 4-1 6-3"/><path d="M3 12c2-2 4-3 6-3s4 2 6 2 4-1 6-3"/></svg>
+                Sérénité
+              </h4>
+              <p>Un espace calme et paisible, loin de l'agitation du quotidien</p>
+            </div>
+            <div class="value-card">
+              <h4>
+                <svg class="val-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 6v6l4 2"/></svg>
+                Nature
+              </h4>
+              <p>Immersion totale dans la luxuriante biodiversité malgache</p>
+            </div>
+            <div class="value-card">
+              <h4>
+                <svg class="val-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Accueil
+              </h4>
+              <p>Hospitalité chaleureuse et service personnalisé à chaque instant</p>
+            </div>
+            <div class="value-card">
+              <h4>
+                <svg class="val-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+                Confort
+              </h4>
+              <p>Équipements modernes dans un cadre authentique et tropical</p>
+            </div>
           </div>
-          <br>
-          <a href="#contact" class="btn btn-primary" style="margin-top:8px">En savoir plus →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════
-       SERVICES
-  ════════════════════════════════════════════════ -->
-  <section id="services">
+  <!-- HÉBERGEMENTS -->
+  <section id="hebergements">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Nos Offres</span>
-        <h2 class="section-title" style="color:#fff">Des <em>expériences</em> mémorables</h2>
+      <div class="bungalows-header reveal">
+        <span class="section-label">Nos Hébergements</span>
+        <h2>Bungalows & Chambres</h2>
+        <div class="section-divider center"></div>
+        <p style="max-width: 560px; margin: 0 auto;">Des espaces généreux et bien équipés, pensés pour accueillir familles et groupes dans un confort tropical authentique.</p>
       </div>
-      <div class="services-grid">
-
-        <!-- ✏️ MODIFIER : Cartes services — dupliquer/supprimer selon besoins -->
-        <div class="service-card reveal">
-          <div class="service-img">
-            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80" alt="Chambre Deluxe" loading="lazy" />
+      <div class="bungalows-grid">
+        <!-- Card 1 -->
+        <div class="bungalow-card reveal">
+          <div class="bungalow-img">
+            <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/607971419_1410687357425840_2539636956319507396_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHypQbx046WUR5mIEIyDWmQv9vw7AlhG6i_2_DsCWEbqP5M5SGsKzsZ7-ed0idLJL-QmxOl9UX1Wcd_CIzsiAIh&_nc_ohc=7Lq6Bt48j9gQ7kNvwHmViLm&_nc_oc=AdpQkoIWuNdHVMNOMMpg6QwY4esATGQoQC6H9cJmtShLJqOlhjooyQk7fvn6vkV6_C0&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=SCz0G34gQDiHe2rPVQj3vA&_nc_ss=7a32e&oh=00_AfzaxOXVf9x2352RDpC-zgtQM6-nLnsrfxiq9fHZa3bYBg&oe=69C820A1" alt="Bungalow Famille" />
+            <span class="bungalow-tag">Famille</span>
           </div>
-          <div class="service-body">
-            <div class="service-icon">🛏️</div>
-            <div class="service-name">Chambre Deluxe</div>
-            <p class="service-desc">Chambres spacieuses avec vue panoramique sur l'océan, climatisation, minibar et terrasse privée.</p>
-            <div class="service-price">
-              <span class="price-label">À partir de</span>
-              <span class="price-value">180 000 Ar / nuit</span>
+          <div class="bungalow-body">
+            <h3>Bungalow Grand Famille</h3>
+            <p>Spacieux et lumineux, ce bungalow dispose de plusieurs chambres confortables avec vue sur le jardin tropical. Parfait pour les grandes familles.</p>
+            <div class="bungalow-features">
+              <span class="feat-tag">Climatisation</span>
+              <span class="feat-tag">Terrasse</span>
+              <span class="feat-tag">Wi-Fi</span>
+              <span class="feat-tag">Cuisine</span>
+            </div>
+            <div class="bungalow-footer">
+              <div class="bungalow-capacity">Capacité : <strong>5–8 pers.</strong></div>
+              <a href="https://wa.me/261341810248?text=Bonjour%2C%20je%20voudrais%20réserver%20le%20Bungalow%20Grand%20Famille" target="_blank" class="btn-sm">Réserver</a>
             </div>
           </div>
         </div>
-
-        <div class="service-card reveal">
-          <div class="service-img">
-            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Restaurant" loading="lazy" />
+        <!-- Card 2 -->
+        <div class="bungalow-card reveal reveal-delay-1">
+          <div class="bungalow-img">
+            <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/608128309_1413250700502839_1541914859464986824_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHCdV2jvoGhCjssuyCZFsjnTJbeLEkk_yxMlt4sSST_LENKZzRx80Gt7Gmu6iNstCwNd70XnuGsb_9To0cKIDpv&_nc_ohc=znKG5UPcpOYQ7kNvwFm7E8m&_nc_oc=Adp593fgSMHbe9c1ibGdMBqIxTSgkp29kFS28l6VLoNNpV6fmRsaeuXvq-dCLQLDtqk&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=8UWwXKtWbG5sc3fz0CTmuQ&_nc_ss=7a32e&oh=00_AfyoQwLwSC2KQVjWZLjxC6P4WogcpKqI1SJpNoPJD-bBDg&oe=69C819C2" alt="Bungalow Vue Mer" />
+            <span class="bungalow-tag">Vue Mer</span>
           </div>
-          <div class="service-body">
-            <div class="service-icon">🍽️</div>
-            <div class="service-name">Restaurant Gasy</div>
-            <p class="service-desc">Saveurs locales et cuisine fusion par notre chef étoilé. Poissons frais du jour, fruits exotiques, rhum arrangé maison.</p>
-            <div class="service-price">
-              <span class="price-label">Menu complet</span>
-              <span class="price-value">45 000 Ar</span>
+          <div class="bungalow-body">
+            <h3>Bungalow Vue Océan</h3>
+            <p>Réveillez-vous chaque matin avec une vue imprenable sur l'Océan Indien. Ce bungalow premium offre une expérience tropicale inoubliable.</p>
+            <div class="bungalow-features">
+              <span class="feat-tag">Vue mer</span>
+              <span class="feat-tag">Climatisation</span>
+              <span class="feat-tag">Terrasse privée</span>
+              <span class="feat-tag">Wi-Fi</span>
+            </div>
+            <div class="bungalow-footer">
+              <div class="bungalow-capacity">Capacité : <strong>5–7 pers.</strong></div>
+              <a href="https://wa.me/261341810248?text=Bonjour%2C%20je%20voudrais%20réserver%20le%20Bungalow%20Vue%20Océan" target="_blank" class="btn-sm">Réserver</a>
             </div>
           </div>
         </div>
-
-        <div class="service-card reveal">
-          <div class="service-img">
-            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80" alt="Activités nautiques" loading="lazy" />
+        <!-- Card 3 -->
+        <div class="bungalow-card reveal reveal-delay-2">
+          <div class="bungalow-img">
+            <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/607250550_1410688200759089_3251627829136163927_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFxhGwJ_hPs2CfqWw_TMnIYP29sk-CvHCg_b2yT4K8cKOJ1HPvukd9Ww2HS8W5JiDHVvNUOK2hS1EnAmbxopYPl&_nc_ohc=lxy1NjZrR-MQ7kNvwF0i-FG&_nc_oc=Adr1UhirXOKlbid1Vutf3dk1vQ3Rl1ALDR6znMPqmv7zU0XQbnhd2zyh8D6OAE1k3PA&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=X57xIP6-rHJFghNV5JwsRg&_nc_ss=7a32e&oh=00_AfyHSqZvjXrqAjwDTYwV59pD5EHfIJV1YX-8LjZmADWXVw&oe=69C8069F" alt="Bungalow Groupe" />
+            <span class="bungalow-tag">Groupe</span>
           </div>
-          <div class="service-body">
-            <div class="service-icon">🤿</div>
-            <div class="service-name">Activités Nautiques</div>
-            <p class="service-desc">Plongée sous-marine, snorkeling, kayak, excursions aux îles voisines. L'aventure à portée de main.</p>
-            <div class="service-price">
-              <span class="price-label">Demi-journée</span>
-              <span class="price-value">75 000 Ar</span>
+          <div class="bungalow-body">
+            <h3>Bungalow Grand Groupe</h3>
+            <p>Idéal pour les groupes d'amis ou séminaires, ce vaste bungalow dispose d'espaces de vie communs et d'équipements pour accueillir confortablement tous vos convives.</p>
+            <div class="bungalow-features">
+              <span class="feat-tag">Salon commun</span>
+              <span class="feat-tag">BBQ</span>
+              <span class="feat-tag">Climatisation</span>
+              <span class="feat-tag">Parking</span>
+            </div>
+            <div class="bungalow-footer">
+              <div class="bungalow-capacity">Capacité : <strong>8–12 pers.</strong></div>
+              <a href="https://wa.me/261341810248?text=Bonjour%2C%20je%20voudrais%20réserver%20le%20Bungalow%20Grand%20Groupe" target="_blank" class="btn-sm">Réserver</a>
             </div>
           </div>
         </div>
-
-        <div class="service-card reveal">
-          <div class="service-img">
-            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="Spa" loading="lazy" />
-          </div>
-          <div class="service-body">
-            <div class="service-icon">💆</div>
-            <div class="service-name">Spa & Bien-être</div>
-            <p class="service-desc">Massages traditionnels malgaches, hammam, soins du visage et enveloppements aux huiles naturelles locales.</p>
-            <div class="service-price">
-              <span class="price-label">Soin 1h</span>
-              <span class="price-value">60 000 Ar</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="service-img">
-            <img src="https://images.unsplash.com/photo-1535827841776-24afc1e255ac?w=600&q=80" alt="Suite Prestige" loading="lazy" />
-          </div>
-          <div class="service-body">
-            <div class="service-icon">✨</div>
-            <div class="service-name">Suite Prestige</div>
-            <p class="service-desc">Notre suite la plus exclusive — jacuzzi extérieur, salle à manger privée, majordome dédié 24h/24.</p>
-            <div class="service-price">
-              <span class="price-label">À partir de</span>
-              <span class="price-value">350 000 Ar / nuit</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="service-img">
-            <img src="https://images.unsplash.com/photo-1511795409834-432f7b1728b2?w=600&q=80" alt="Événements" loading="lazy" />
-          </div>
-          <div class="service-body">
-            <div class="service-icon">🎊</div>
-            <div class="service-name">Événements & Mariages</div>
-            <p class="service-desc">Organisation complète de mariages, anniversaires, séminaires d'entreprise sur notre plage privée.</p>
-            <div class="service-price">
-              <span class="price-label">Sur devis</span>
-              <span class="price-value">Contactez-nous</span>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════
-       GALERIE
-  ════════════════════════════════════════════════ -->
-  <section id="gallery">
+  <!-- GALERIE -->
+  <section id="galerie">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Galerie</span>
-        <h2 class="section-title">Laissez-vous <em>inspirer</em></h2>
+      <div class="galerie-header reveal">
+        <span class="section-label">Notre Cadre</span>
+        <h2>Galerie Photos</h2>
+        <div class="section-divider center"></div>
       </div>
-      <div class="gallery-grid">
-        <!-- ✏️ MODIFIER : Remplacez par vos photos -->
-        <div class="gallery-item reveal" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80" alt="Vue panoramique" loading="lazy" />
-          <div class="gallery-overlay"><div class="gallery-zoom">⊕</div></div>
+      <div class="galerie-grid reveal">
+        <div class="gal-item g1">
+          <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/607431633_1410688220759087_3337020552100640170_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEEi6bKswzXQGdQE1zhHMi_wP5hnNPQ-AHA_mGc09D4AR6molzW7aYAuWpng7MOEYOp0ZyJlpqQU3Ki_qbHAdKo&_nc_ohc=3xYx99gfMC0Q7kNvwFbuA_O&_nc_oc=AdoSomIE8ka-EEAW3pgthIuoqtSStDfFBiPsc_spx30pzsQgeiL_Ph6eiryYA3WimuI&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=iNNJOdBXZfBVv28HXDjBlA&_nc_ss=7a32e&oh=00_Afx9ZzHtEaoxpwO7gWCPDHMtd9xV_oObZfyXegqTQUTgSQ&oe=69C80DF8" alt="TROIS A Soleil Foulpointe" />
+          <div class="overlay"><svg class="gal-zoom" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
         </div>
-        <div class="gallery-item reveal" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&q=80" alt="Piscine" loading="lazy" />
-          <div class="gallery-overlay"><div class="gallery-zoom">⊕</div></div>
+        <div class="gal-item g2">
+          <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/608128309_1413250700502839_1541914859464986824_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHCdV2jvoGhCjssuyCZFsjnTJbeLEkk_yxMlt4sSST_LENKZzRx80Gt7Gmu6iNstCwNd70XnuGsb_9To0cKIDpv&_nc_ohc=znKG5UPcpOYQ7kNvwFm7E8m&_nc_oc=Adp593fgSMHbe9c1ibGdMBqIxTSgkp29kFS28l6VLoNNpV6fmRsaeuXvq-dCLQLDtqk&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=8UWwXKtWbG5sc3fz0CTmuQ&_nc_ss=7a32e&oh=00_AfyoQwLwSC2KQVjWZLjxC6P4WogcpKqI1SJpNoPJD-bBDg&oe=69C819C2" alt="Bungalow vue" />
+          <div class="overlay"><svg class="gal-zoom" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
         </div>
-        <div class="gallery-item reveal" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=500&q=80" alt="Chambre" loading="lazy" />
-          <div class="gallery-overlay"><div class="gallery-zoom">⊕</div></div>
+        <div class="gal-item g3">
+          <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/607250550_1410688200759089_3251627829136163927_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFxhGwJ_hPs2CfqWw_TMnIYP29sk-CvHCg_b2yT4K8cKOJ1HPvukd9Ww2HS8W5JiDHVvNUOK2hS1EnAmbxopYPl&_nc_ohc=lxy1NjZrR-MQ7kNvwF0i-FG&_nc_oc=Adr1UhirXOKlbid1Vutf3dk1vQ3Rl1ALDR6znMPqmv7zU0XQbnhd2zyh8D6OAE1k3PA&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=X57xIP6-rHJFghNV5JwsRg&_nc_ss=7a32e&oh=00_AfyHSqZvjXrqAjwDTYwV59pD5EHfIJV1YX-8LjZmADWXVw&oe=69C8069F" alt="Environnement tropical" />
+          <div class="overlay"><svg class="gal-zoom" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
         </div>
-        <div class="gallery-item reveal" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700&q=80" alt="Cuisine" loading="lazy" />
-          <div class="gallery-overlay"><div class="gallery-zoom">⊕</div></div>
+        <div class="gal-item g4">
+          <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/605633681_1410688090759100_2928498703987762567_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEuZ518dgaw86OxLCB3b5aGN0cIqxj6lTc3RwirGPqVN4bySKrITFmq6uxw7-fFX-27jtkRzziBbvU2xGrW441a&_nc_ohc=0RK0SDWVm14Q7kNvwGv5dXD&_nc_oc=AdoCaUyBazEtSNqsSUXZl5Z9vuKL9X_mYmNyRWuHXjkBec5yn6aON9271sH9QUlNuG8&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=Q6S3g6i3gIalZY_J576ODg&_nc_ss=7a32e&oh=00_Afz8tdbTar81OvWS3O_jpQhZY25Zs5rifbEHian04Aft_Q&oe=69C82B6B" alt="Hébergement Foulpointe" />
+          <div class="overlay"><svg class="gal-zoom" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
         </div>
-        <div class="gallery-item reveal" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=500&q=80" alt="Plongée" loading="lazy" />
-          <div class="gallery-overlay"><div class="gallery-zoom">⊕</div></div>
+        <div class="gal-item g5">
+          <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/605772600_1410688004092442_3017654107220930705_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeF6ou-gUuh6VJmO7OIP6hoBj7BtiK_Cd3WPsG2Ir8J3daajG1Nd833rM7_zuI9NsMrBNypEFxSKQG-cpGkk9NhB&_nc_ohc=kCIjhCKKHGUQ7kNvwFq0q1H&_nc_oc=Adq3qJOy-mqFfgodIHWBCIpjhTFlmO9XlVlwHBYOncUEYXkQJcOl85YEZPfWt1yqWZw&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=Xzrb1T3CviWinXkyRlMX0w&_nc_ss=7a32e&oh=00_Afwmf8Gd-gK_NSMXT-3mpWdrxw-YdIKe61OjTHDVrWHdKA&oe=69C8150D" alt="Séjour Madagascar" />
+          <div class="overlay"><svg class="gal-zoom" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+        </div>
+        <div class="gal-item g6">
+          <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/605553059_1410688097425766_6288982547926708992_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHz1ShXnjERGqZ6hpzAn6yNIJnNg4-j3eYgmc2Dj6Pd5rUvLT-oOM42810jy9fln7cmjFbq6Fe3ix5H63mzzXd5&_nc_ohc=zQ7pAY_3bhkQ7kNvwFoX8sj&_nc_oc=AdoLIYPCPmQZfqj3qzzKeC91ZcMYiCYQtCUnEpXlN_qXM9Y-PNbr5AWV2603nefM4QU&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=W8M2kSBEfgxtHKtEUx6IzQ&_nc_ss=7a32e&oh=00_AfxBL9eNiC8cMM99JDboyO-poYTnMTHa0seleyJ2opR55A&oe=69C80FD8" alt="Détente Foulpointe" />
+          <div class="overlay"><svg class="gal-zoom" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+        </div>
+        <div class="gal-item g7">
+          <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/607971419_1410687357425840_2539636956319507396_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHypQbx046WUR5mIEIyDWmQv9vw7AlhG6i_2_DsCWEbqP5M5SGsKzsZ7-ed0idLJL-QmxOl9UX1Wcd_CIzsiAIh&_nc_ohc=7Lq6Bt48j9gQ7kNvwHmViLm&_nc_oc=AdpQkoIWuNdHVMNOMMpg6QwY4esATGQoQC6H9cJmtShLJqOlhjooyQk7fvn6vkV6_C0&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=SCz0G34gQDiHe2rPVQj3vA&_nc_ss=7a32e&oh=00_AfzaxOXVf9x2352RDpC-zgtQM6-nLnsrfxiq9fHZa3bYBg&oe=69C820A1" alt="Bungalow TROIS A Soleil" />
+          <div class="overlay"><svg class="gal-zoom" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+        </div>
+        <div class="gal-item g8">
+          <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/586211534_1382171346944108_5206956688517314165_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeH2p2WdKQAYyYj9Etg_VfbY8tAWuaoTRPTy0Ba5qhNE9OSODiOFPZd9-H1QF_iJqtddZP1LKMcHBQWu5ewJwMWe&_nc_ohc=tv-X3ZpkzW8Q7kNvwGoRWHH&_nc_oc=Adr-EEIN_ZBj0xM_ags1MA15Z_2-HD2Rpd8hqGLA7Zr45UW3ihWHHi-WBw1eHImz0Qg&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=Pr1Xy8XNcdSevdpI-Xw38g&_nc_ss=7a32e&oh=00_AfwHjJRGUX6tzUSgxZkiy5WPvAPRmTYNg6rqI5-RQ_uoQQ&oe=69C82FAF" alt="Nature Madagascar" />
+          <div class="overlay"><svg class="gal-zoom" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <div class="lightbox-close" onclick="closeLightbox()">✕</div>
-    <img id="lightboxImg" src="" alt="Photo agrandie" />
-  </div>
-
-  <!-- ═══════════════════════════════════════════════
-       AVIS CLIENTS
-  ════════════════════════════════════════════════ -->
-  <section id="reviews">
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Témoignages</span>
-        <h2 class="section-title">Ce que disent<br>nos <em>hôtes</em></h2>
-      </div>
-      <div class="reviews-grid">
-
-        <!-- ✏️ MODIFIER : Avis clients — dupliquer selon vos besoins -->
-        <div class="review-card reveal">
-          <div class="review-quote">"</div>
-          <p class="review-text">Un séjour absolument parfait. Le personnel est aux petits soins, la vue sur l'océan depuis notre chambre était à couper le souffle. Nous reviendrons sans hésiter !</p>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-author">
-            <div class="review-avatar">👩</div>
-            <div>
-              <div class="review-name">Marie-Claire D.</div>
-              <div class="review-location">Paris, France · Juin 2024</div>
-            </div>
+      <span class="section-label">Avis Clients</span>
+      <h2>Ce que disent nos hôtes</h2>
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <div class="stars">★★★★★</div>
+          <p>"Un séjour absolument magnifique ! Le bungalow était spacieux et propre, le personnel accueillant. La plage est à couper le souffle. On reviendra sans hésiter !"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">R</div>
+            <div class="testi-info"><strong>Ravo & Famille</strong><span>Antananarivo, Madagascar</span></div>
           </div>
         </div>
-
-        <div class="review-card reveal">
-          <div class="review-quote">"</div>
-          <p class="review-text">La cuisine du restaurant Gasy est tout simplement extraordinaire. Les produits frais, la générosité des plats et l'ambiance feutrée en font une expérience gastronomique inoubliable.</p>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-author">
-            <div class="review-avatar">👨</div>
-            <div>
-              <div class="review-name">Sébastien M.</div>
-              <div class="review-location">Réunion · Août 2024</div>
-            </div>
+        <div class="testi-card reveal reveal-delay-1">
+          <div class="stars">★★★★★</div>
+          <p>"Nous étions 8 amis pour un weekend. Le grand bungalow était parfait. L'emplacement sur la côte est de Madagascar est vraiment exceptionnel."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">T</div>
+            <div class="testi-info"><strong>Thomas G.</strong><span>Réunion, France</span></div>
           </div>
         </div>
-
-        <div class="review-card reveal">
-          <div class="review-quote">"</div>
-          <p class="review-text">Notre lune de miel à Villa Taona était un rêve éveillé. L'équipe avait tout préparé dans les moindres détails. Nous recommandons à tous les couples en quête d'évasion.</p>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-author">
-            <div class="review-avatar">💑</div>
-            <div>
-              <div class="review-name">Fara & Kevin T.</div>
-              <div class="review-location">Antananarivo · Janvier 2025</div>
-            </div>
+        <div class="testi-card reveal reveal-delay-2">
+          <div class="stars">★★★★☆</div>
+          <p>"Cadre idyllique, nature préservée, accueil chaleureux. TROIS A Soleil Foulpointe est une vraie pépite cachée sur la côte malgache. À découvrir absolument !"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">M</div>
+            <div class="testi-info"><strong>Marie & Pierre</strong><span>Paris, France</span></div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════
-       CONTACT
-  ════════════════════════════════════════════════ -->
+  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Nous Contacter</span>
-        <h2 class="section-title">Planifions votre<br><em>séjour</em> ensemble</h2>
-      </div>
       <div class="contact-grid">
-        <div class="contact-info reveal-left">
-          <p>Que vous souhaitiez réserver, obtenir des informations ou simplement partager votre envie d'évasion, notre équipe est disponible 7j/7 pour vous répondre dans les plus brefs délais.</p>
+        <div class="contact-info reveal">
+          <span class="section-label">Nous Contacter</span>
+          <h2>Réservez votre<br /><em>séjour de rêve</em></h2>
+          <div class="section-divider"></div>
+          <p>Notre équipe est disponible pour répondre à toutes vos questions et vous aider à planifier un séjour inoubliable à Foulpointe.</p>
           <div class="contact-items">
-            <!-- ✏️ MODIFIER : Coordonnées -->
             <div class="contact-item">
-              <div class="contact-icon">📍</div>
-              <div>
-                <div class="contact-item-label">Adresse</div>
-                <div class="contact-item-value">Rue de la Plage, Nosy Be<br>Madagascar 207</div>
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.15 6.15l.98-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="contact-item-text">
+                <strong>WhatsApp & Téléphone</strong>
+                <a href="https://wa.me/261341810248">034 18 102 48</a>
               </div>
             </div>
             <div class="contact-item">
-              <div class="contact-icon">📞</div>
-              <div>
-                <div class="contact-item-label">Téléphone</div>
-                <!-- ✏️ MODIFIER : Numéro de téléphone -->
-                <div class="contact-item-value"><a href="tel:+261320000000" style="color:inherit">+261 32 00 000 00</a></div>
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contact-item-text">
+                <strong>Email</strong>
+                <a href="/cdn-cgi/l/email-protection#7c14190e1512151d15121d1312150f131d3c1b111d1510521f1311"><span class="__cf_email__" data-cfemail="6d05081f0403040c04030c0203041e020c2d0a000c0401430e0200">[email&#160;protected]</span></a>
               </div>
             </div>
             <div class="contact-item">
-              <div class="contact-icon">✉️</div>
-              <div>
-                <div class="contact-item-label">Email</div>
-                <!-- ✏️ MODIFIER : Email -->
-                <div class="contact-item-value"><a href="mailto:contact@villataona.mg" style="color:inherit">contact@villataona.mg</a></div>
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="contact-item-text">
+                <strong>Adresse</strong>
+                <p>Mahavelona Foulpointe, Madagascar</p>
               </div>
             </div>
             <div class="contact-item">
-              <div class="contact-icon">🕐</div>
-              <div>
-                <div class="contact-item-label">Réception</div>
-                <div class="contact-item-value">Ouvert 24h/24 — 7j/7</div>
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="contact-item-text">
+                <strong>Disponibilité</strong>
+                <p>Lundi – Dimanche : 7h00 – 21h00</p>
               </div>
             </div>
           </div>
-          <!-- ✏️ MODIFIER : Numéro WhatsApp -->
-          <a href="https://wa.me/261320000000?text=Bonjour%20Villa%20Taona,%20je%20souhaite%20faire%20une%20réservation" class="whatsapp-btn" target="_blank">
-            💬 Réserver via WhatsApp
-          </a>
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59876.36!2d49.5!3d-17.68!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21fc7ed3e3c3c3b1%3A0x0!2sFoulpointe%2C%20Madagascar!5e0!3m2!1sfr!2smg!4v1700000000000"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              title="TROIS A Soleil Foulpointe sur Google Maps">
+            </iframe>
+          </div>
         </div>
-
-        <!-- Formulaire de contact -->
-        <div class="reveal-right">
-          <form class="contact-form" onsubmit="submitForm(event)">
+        <div class="contact-form-wrap reveal reveal-delay-2">
+          <span class="section-label">Formulaire</span>
+          <h3>Envoyez-nous<br /><em>un message</em></h3>
+          <div class="section-divider"></div>
+          <p>Remplissez ce formulaire et nous vous répondrons dans les plus brefs délais.</p>
+          <form id="contactForm">
             <div class="form-row">
               <div class="form-group">
-                <label for="nom">Nom complet</label>
-                <input type="text" id="nom" placeholder="Jean Dupont" required />
+                <label for="prenom">Prénom</label>
+                <input type="text" id="prenom" placeholder="Votre prénom" required />
               </div>
               <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="jean@email.com" required />
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" placeholder="Votre nom" required />
               </div>
             </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="tel">Téléphone</label>
-                <input type="tel" id="tel" placeholder="+261 32 ..." />
-              </div>
-              <div class="form-group">
-                <label for="service">Service souhaité</label>
-                <select id="service">
-                  <!-- ✏️ MODIFIER : Options selon vos services -->
-                  <option value="">Choisir un service</option>
-                  <option>Chambre Deluxe</option>
-                  <option>Suite Prestige</option>
-                  <option>Restaurant</option>
-                  <option>Spa & Bien-être</option>
-                  <option>Activités nautiques</option>
-                  <option>Événement / Mariage</option>
-                </select>
-              </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="votre@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="telephone">Téléphone / WhatsApp</label>
+              <input type="tel" id="telephone" placeholder="+261 XX XX XXX XX" />
             </div>
             <div class="form-row">
               <div class="form-group">
@@ -1279,171 +766,138 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" placeholder="Dites-nous tout sur votre projet de séjour..."></textarea>
+              <label for="personnes">Nombre de personnes</label>
+              <select id="personnes">
+                <option value="">Sélectionner</option>
+                <option>1–2 personnes</option>
+                <option>3–4 personnes</option>
+                <option>5–6 personnes</option>
+                <option>7–8 personnes</option>
+                <option>9+ personnes</option>
+              </select>
             </div>
-            <button type="submit" class="form-submit-btn">Envoyer ma demande →</button>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Décrivez votre séjour idéal, posez vos questions…"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Envoyer ma demande</button>
           </form>
           <div class="form-success" id="formSuccess">
-            ✅ Merci ! Votre message a bien été envoyé. Nous vous répondrons sous 24h.
+            <p>✅ <strong>Message envoyé !</strong><br />Nous vous contacterons très prochainement. À très bientôt à Foulpointe !</p>
           </div>
         </div>
-      </div>
-
-      <!-- Google Maps -->
-      <div class="map-wrapper reveal">
-        <!-- ✏️ MODIFIER : Remplacez le src par votre embed Google Maps -->
-        <!-- Pour générer : Google Maps → Partager → Intégrer une carte → Copier l'iframe -->
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3789.5!2d48.3!3d-13.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sNosy%20Be!5e0!3m2!1sfr!2smg!4v1234567890"
-          allowfullscreen=""
-          loading="lazy"
-          title="Localisation Villa Taona"
-        ></iframe>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════
-       FOOTER
-  ════════════════════════════════════════════════ -->
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="logo">
-            <!-- ✏️ MODIFIER : Nom footer -->
-            <span class="logo-name" style="color:#fff">Villa Taona</span>
-            <span class="logo-tagline">Nosy Be · Madagascar</span>
-          </div>
-          <!-- ✏️ MODIFIER : Description footer -->
-          <p>Votre havre de luxe sur l'île aux parfums. Chambres, restaurant, spa et activités nautiques au cœur de Nosy Be.</p>
-          <div class="social-links">
-            <!-- ✏️ MODIFIER : Liens réseaux sociaux -->
-            <a href="#" class="social-link" aria-label="Facebook">f</a>
-            <a href="#" class="social-link" aria-label="Instagram">📷</a>
-            <a href="#" class="social-link" aria-label="TripAdvisor">T</a>
-            <a href="#" class="social-link" aria-label="YouTube">▶</a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="#about">À Propos</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#gallery">Galerie</a></li>
-            <li><a href="#reviews">Avis clients</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Services</h4>
-          <ul>
-            <!-- ✏️ MODIFIER : Liste services footer -->
-            <li><a href="#services">Chambres & Suites</a></li>
-            <li><a href="#services">Restaurant Gasy</a></li>
-            <li><a href="#services">Spa & Massage</a></li>
-            <li><a href="#services">Activités Nautiques</a></li>
-            <li><a href="#services">Mariages & Événements</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <ul>
-            <!-- ✏️ MODIFIER : Coordonnées footer -->
-            <li><a href="tel:+261320000000">+261 32 00 000 00</a></li>
-            <li><a href="mailto:contact@villataona.mg">contact@villataona.mg</a></li>
-            <li><a href="https://wa.me/261320000000" target="_blank">WhatsApp</a></li>
-            <li><a href="#contact">Nosy Be, Madagascar</a></li>
-          </ul>
-        </div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">TROIS A Soleil</div>
+        <div class="sub">Foulpointe · Madagascar</div>
+        <p>Un havre de paix sur la côte est de Madagascar, où la beauté tropicale rencontre l'hospitalité malgache.</p>
       </div>
-      <div class="footer-bottom">
-        <!-- ✏️ MODIFIER : Copyright -->
-        <span>© 2025 Villa Taona · Tous droits réservés</span>
-        <span>Conçu avec ♥ par <a href="#" style="color:var(--color-gold)">VotrAgence.mg</a></span>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#apropos">À Propos</a></li>
+          <li><a href="#hebergements">Bungalows</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/261341810248"><svg style="width:13px;height:13px;vertical-align:middle;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.15 6.15l.98-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>034 18 102 48</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#9df5f8eff4f3f4fcf4f3fcf2f3f4eef2fcddfaf0fcf4f1b3fef2f0"><svg style="width:13px;height:13px;vertical-align:middle;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</a></li>
+          <li><a href="#contact"><svg style="width:13px;height:13px;vertical-align:middle;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Mahavelona Foulpointe</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 TROIS A Soleil Foulpointe · Tous droits réservés</p>
+      <p>Made with <svg style="width:12px;height:12px;fill:#e07b54;display:inline;vertical-align:middle" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> à Madagascar</p>
     </div>
   </footer>
 
-  <!-- WhatsApp Floating Button -->
-  <!-- ✏️ MODIFIER : Numéro WhatsApp -->
-  <a href="https://wa.me/261320000000?text=Bonjour,%20je%20voudrais%20obtenir%20des%20informations" class="whatsapp-float" target="_blank" aria-label="WhatsApp">💬</a>
+  <!-- WHATSAPP FLOATING -->
+  <a href="https://wa.me/261341810248?text=Bonjour%20TROIS%20A%20Soleil%20Foulpointe%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20vos%20bungalows." target="_blank" class="whatsapp-float" aria-label="Contacter sur WhatsApp">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.004 2.667C8.636 2.667 2.667 8.637 2.667 16.004c0 2.358.622 4.672 1.806 6.705L2.667 29.333l6.79-1.779a13.292 13.292 0 0 0 6.547 1.717h.006c7.367 0 13.323-5.97 13.323-13.337 0-3.56-1.386-6.907-3.903-9.421a13.24 13.24 0 0 0-9.426-3.846zm0 24.25a11.012 11.012 0 0 1-5.62-1.54l-.402-.24-4.031 1.057 1.075-3.926-.264-.407A11.024 11.024 0 0 1 5 16.004C5 9.923 9.923 5 16.004 5c2.945 0 5.712 1.147 7.794 3.23a10.958 10.958 0 0 1 3.225 7.78c0 6.085-4.936 11.007-11.019 11.007zm6.04-8.247c-.332-.165-1.962-.967-2.264-1.077-.302-.11-.52-.165-.74.165s-.851 1.077-1.043 1.298c-.192.22-.385.248-.717.083-.332-.165-1.4-.515-2.667-1.644-.985-.879-1.65-1.964-1.843-2.296-.192-.332-.02-.511.145-.676.148-.148.332-.386.497-.579.165-.193.22-.332.33-.553.11-.22.055-.414-.028-.58-.083-.165-.74-1.78-1.013-2.44-.267-.64-.537-.554-.74-.564-.192-.009-.413-.011-.634-.011s-.579.083-.883.414c-.303.331-1.155 1.129-1.155 2.75s1.183 3.189 1.348 3.411c.165.22 2.327 3.555 5.639 4.985.787.34 1.402.543 1.881.695.79.25 1.51.215 2.079.13.634-.094 1.962-.803 2.237-1.578.275-.775.275-1.439.192-1.578-.082-.138-.302-.22-.634-.385z"/>
+    </svg>
+    <span class="whatsapp-tooltip">Discuter sur WhatsApp</span>
+  </a>
 
-  <!-- ═══════════════════════════════════════════════
-       JAVASCRIPT
-  ════════════════════════════════════════════════ -->
-  <script>
-    // ─── Header scroll effect ───────────────────────
-    const header = document.getElementById('header');
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // NAV SCROLL
+    const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 60);
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    // ─── Mobile Nav ──────────────────────────────────
-    function toggleMobileNav() {
-      const nav = document.getElementById('mobileNav');
-      const ham = document.getElementById('hamburger');
-      nav.classList.toggle('open');
-      ham.classList.toggle('open');
-      document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
-    }
-    function closeMobileNav() {
-      document.getElementById('mobileNav').classList.remove('open');
-      document.getElementById('hamburger').classList.remove('open');
-      document.body.style.overflow = '';
-    }
+    // MOBILE MENU
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('navMenu');
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('open');
+      const spans = toggle.querySelectorAll('span');
+      if (menu.classList.contains('open')) {
+        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+      } else {
+        spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      }
+    });
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      });
+    });
 
-    // ─── Scroll Reveal ───────────────────────────────
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
-          revealObserver.unobserve(entry.target);
+    // SCROLL REVEAL
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      reveals.forEach(r => r.classList.add('hidden'));
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.remove('hidden');
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      reveals.forEach(r => observer.observe(r));
+    }
+    // Fallback: if page loaded with scroll already down, reveal all visible
+    window.addEventListener('load', () => {
+      reveals.forEach(r => {
+        const rect = r.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          r.classList.remove('hidden');
+          r.classList.add('visible');
         }
       });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
-
-    // ─── Lightbox ────────────────────────────────────
-    function openLightbox(el) {
-      const img = el.querySelector('img');
-      document.getElementById('lightboxImg').src = img.src;
-      document.getElementById('lightbox').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-
-    // ─── Formulaire ──────────────────────────────────
-    function submitForm(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('.form-submit-btn');
-      btn.textContent = 'Envoi en cours...';
-      btn.disabled = true;
-      // Simule un envoi (remplacez par votre API ou EmailJS)
-      setTimeout(() => {
-        e.target.style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-      }, 1500);
-    }
-
-    // ─── Smooth active nav ───────────────────────────
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 200) current = s.id;
-      });
-      document.querySelectorAll('nav a').forEach(a => {
-        a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--color-gold)' : '';
-      });
     });
-  </script>
 
-</body>
-</html>
+    // CONTACT FORM
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const prenom = document.getElementById('prenom').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      const tel = document.getElementById('telephone').value;
+      const arrivee = document.getElementById('arrivee').value;
+      const personnes = document.getElementById('personnes').value;
+
+      // Build WhatsApp message
+      let wa = `Bonjour TROIS A Soleil Foulpointe !%0A%0ANom : ${prenom}%0AEmail : ${email}`;
+      if (tel) wa += `%0ATél : ${tel}`;
+      if (arrivee) wa += `%0AArrivée : ${arrivee}`;
+      if (personnes) wa += `%0APersonnes : ${personnes}`;
+      if (message) wa += `
