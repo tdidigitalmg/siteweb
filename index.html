@@ -3,901 +3,1599 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TROIS A Soleil Foulpointe | Bungalows & Hôtel à Madagascar</title>
-  <meta name="description" content="TROIS A Soleil Foulpointe — hôtel de charme à Mahavelona Foulpointe, Madagascar. Bungalows pour familles et groupes, vue mer, nature tropicale." />
-  <meta name="keywords" content="hôtel Madagascar, bungalow Foulpointe, hébergement Mahavelona, vacances Madagascar, plage Madagascar" />
+  <title>Nathéa Voyages – Travel Planner & Réceptif Madagascar</title>
+  <meta name="description" content="Nathéa Voyages, agence de voyage agréée Licence B. Organisation de voyages sur mesure, réceptif touristique à Madagascar, réservation hôtels, circuits et transport. Partenaires internationaux." />
+  <meta property="og:title" content="Nathéa Voyages – Travel Planner Madagascar" />
+  <meta property="og:description" content="Voyagez en toute confiance, conformité et sérénité avec Nathéa Voyages." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ===== CSS VARIABLES ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --ocean: #1a5f7a;
-      --ocean-deep: #0d3d52;
-      --ocean-light: #3a8fa8;
-      --sand: #e8d5a3;
-      --sand-light: #f5edd8;
-      --sand-dark: #c4a96b;
-      --white: #fdfaf5;
-      --dark: #1a1209;
-      --gold: #c9a227;
-      --coral: #e07b54;
-      --text: #2d2016;
-      --text-light: #6b5840;
-      --nav-h: 80px;
+      --ocean: #0ea5e9;
+      --ocean-deep: #0369a1;
+      --ocean-light: #38bdf8;
+      --gold: #d4a843;
+      --gold-light: #f0c96a;
+      --sand: #f5f0e8;
+      --sand-dark: #e8dcc8;
+      --white: #ffffff;
+      --dark: #0f172a;
+      --dark-soft: #1e293b;
+      --gray: #64748b;
+      --gray-light: #f1f5f9;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Poppins', sans-serif;
+      --shadow-soft: 0 4px 24px rgba(14,165,233,0.10);
+      --shadow-card: 0 8px 40px rgba(15,23,42,0.12);
+      --shadow-hover: 0 20px 60px rgba(14,165,233,0.20);
+      --radius: 1rem;
+      --radius-lg: 1.5rem;
     }
 
-    /* ===== RESET & BASE ===== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Jost', sans-serif;
+      font-family: var(--font-body);
+      color: var(--dark);
       background: var(--white);
-      color: var(--text);
       overflow-x: hidden;
     }
-    img { max-width: 100%; display: block; }
-    a { text-decoration: none; color: inherit; }
 
-    /* ===== TYPOGRAPHY ===== */
-    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.15; }
-    h1 { font-size: clamp(2.8rem, 7vw, 6rem); }
-    h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
-    h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
-    p { font-size: 1rem; line-height: 1.8; color: var(--text-light); font-weight: 300; }
-    .serif-italic { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--sand); }
+    ::-webkit-scrollbar-thumb { background: var(--ocean); border-radius: 3px; }
 
-    /* ===== NAVIGATION ===== */
-    nav {
-      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-      height: var(--nav-h);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5vw;
-      transition: background 0.5s, backdrop-filter 0.5s, box-shadow 0.5s;
+    /* ─── NAVBAR ─── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.2rem 0;
+      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
     }
-    nav.scrolled {
-      background: rgba(253, 250, 245, 0.96);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 1px 20px rgba(26,15,5,0.08);
+    .navbar.scrolled {
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(20px);
+      padding: 0.8rem 0;
+      box-shadow: 0 2px 32px rgba(14,165,233,0.12);
     }
-    .nav-logo {
-      display: flex; flex-direction: column; line-height: 1;
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .nav-logo .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--white); letter-spacing: 0.04em; transition: color 0.5s; }
-    .nav-logo .sub { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sand); transition: color 0.5s; font-weight: 400; }
-    nav.scrolled .brand { color: var(--ocean-deep); }
-    nav.scrolled .sub { color: var(--sand-dark); }
-    .nav-links { display: flex; gap: 2.5rem; align-items: center; }
-    .nav-links a { font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.85); font-weight: 400; transition: color 0.3s; position: relative; }
-    .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s; }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-links a:hover { color: var(--sand); }
-    nav.scrolled .nav-links a { color: var(--text); }
-    nav.scrolled .nav-links a:hover { color: var(--ocean); }
-    .btn-reserver {
-      background: var(--gold); color: var(--dark) !important; padding: 0.6rem 1.4rem;
-      border-radius: 2px; font-weight: 500 !important; letter-spacing: 0.12em;
-      transition: background 0.3s, transform 0.2s !important;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
     }
-    .btn-reserver::after { display: none !important; }
-    .btn-reserver:hover { background: var(--sand-dark) !important; transform: translateY(-1px); }
-    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 1001; position: relative; }
-    .nav-toggle span { width: 26px; height: 1.5px; background: white; transition: all 0.3s; display: block; }
-    nav.scrolled .nav-toggle span { background: var(--dark); }
+    .logo-icon {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--ocean), var(--gold));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo-icon svg { color: white; }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .logo-main {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      transition: color 0.3s;
+    }
+    .navbar.scrolled .logo-main { color: var(--dark); }
+    .logo-sub {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      transition: color 0.3s;
+    }
+    .navbar.scrolled .logo-sub { color: var(--ocean); }
 
-    /* ===== SECTIONS ===== */
-    section { scroll-margin-top: var(--nav-h); }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 5vw; }
-    .section-label { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ocean-light); font-weight: 500; margin-bottom: 1rem; display: block; }
-    .section-divider { width: 50px; height: 1px; background: var(--gold); margin: 1.5rem 0 2.5rem; }
-    .section-divider.center { margin: 1.5rem auto 2.5rem; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.90);
+      text-decoration: none;
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+      transition: all 0.25s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px; left: 50%; right: 50%;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 1px;
+      transition: all 0.3s;
+    }
+    .nav-links a:hover::after { left: 15%; right: 15%; }
+    .nav-links a:hover { color: var(--white); }
+    .navbar.scrolled .nav-links a { color: var(--dark-soft); }
+    .navbar.scrolled .nav-links a:hover { color: var(--ocean); }
 
-    /* ===== HERO ===== */
-    #accueil {
-      position: relative; height: 100svh; min-height: 600px;
+    .btn-cta-nav {
+      background: linear-gradient(135deg, var(--ocean), var(--ocean-deep));
+      color: white !important;
+      padding: 0.6rem 1.4rem !important;
+      border-radius: 50px !important;
+      font-weight: 600 !important;
+      box-shadow: 0 4px 20px rgba(14,165,233,0.35);
+      transition: all 0.3s !important;
+    }
+    .btn-cta-nav::after { display: none !important; }
+    .btn-cta-nav:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(14,165,233,0.50) !important;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      border: none;
+      background: transparent;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .navbar.scrolled .hamburger span { background: var(--dark); }
+
+    /* ─── MOBILE MENU ─── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15,23,42,0.97);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: white;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--ocean-light); }
+    .mobile-close {
+      position: absolute;
+      top: 2rem; right: 2rem;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .mobile-cta {
+      background: linear-gradient(135deg, var(--ocean), var(--ocean-deep));
+      color: white !important;
+      padding: 0.8rem 2.5rem;
+      border-radius: 50px;
+      font-size: 1.1rem !important;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
     }
     .hero-bg {
-      position: absolute; inset: 0; z-index: 0;
-      background-color: #0d3d52;
-      background-image:
-        linear-gradient(to bottom, rgba(10,30,45,0.35) 0%, rgba(10,30,45,0.15) 40%, rgba(10,30,45,0.6) 100%),
-        url('https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/586217503_1382170856944157_8557924777708964393_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeGzLnnpG_EHQfWcDs5iEWCyzvdqHEGqmfjO92ocQaqZ-M_4MM9C_YD3jo3Yjp2x7AvJTVQ9PgN69TbO0F4O8QkA&_nc_ohc=5eCyFjzz5XoQ7kNvwEsh8ZW&_nc_oc=Adr8Qrz0JUzW3Vj8IEsozSmfB6-_l6MjM4SGc6inOnAfaDqpT1yQW-YoFVNsyxM9fh4&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=Y4TEITIDRcwgNY98EE0l5g&_nc_ss=7a32e&oh=00_AfzuVgGnM0wrbLwYGuB8tJNLZXXhbyvqXA9zYZFiAS3WHg&oe=69C81F6F');
-      background-size: cover;
-      background-position: center;
-      transform: scale(1.05);
-      animation: heroZoom 20s ease-in-out infinite alternate;
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,
+      rgba(2,30,50,0.55) 0%,
+      rgba(14,165,233,0.18) 45%,
+      rgba(2,10,25,0.70) 100%),
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  transform: scale(1.04);
+  transition: transform 8s ease;
+}
+    .hero:hover .hero-bg { transform: scale(1.00); }
+
+    /* Floating particles */
+    .hero-particles {
+      position: absolute; inset: 0;
+      pointer-events: none;
+      overflow: hidden;
     }
-    @keyframes heroZoom { from { transform: scale(1.05); } to { transform: scale(1.12); } }
-    .hero-content { position: relative; z-index: 1; text-align: center; padding: 0 5vw; max-width: 900px; }
-    .hero-eyebrow {
-      font-size: 0.72rem; letter-spacing: 0.35em; text-transform: uppercase;
-      color: var(--sand); font-weight: 400; margin-bottom: 1.5rem;
-      opacity: 0; animation: fadeUp 1s 0.3s forwards;
+    .particle {
+      position: absolute;
+      width: 3px; height: 3px;
+      background: rgba(212,168,67,0.6);
+      border-radius: 50%;
+      animation: float-up linear infinite;
     }
+    .particle:nth-child(1) { left: 10%; animation-duration: 8s; animation-delay: 0s; }
+    .particle:nth-child(2) { left: 25%; animation-duration: 11s; animation-delay: 2s; width:2px; height:2px; }
+    .particle:nth-child(3) { left: 42%; animation-duration: 9s; animation-delay: 4s; }
+    .particle:nth-child(4) { left: 60%; animation-duration: 13s; animation-delay: 1s; width:4px; height:4px; }
+    .particle:nth-child(5) { left: 75%; animation-duration: 10s; animation-delay: 3s; }
+    .particle:nth-child(6) { left: 88%; animation-duration: 7s; animation-delay: 5s; width:2px; height:2px; }
+    @keyframes float-up {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-20px) rotate(360deg); opacity: 0; }
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 0 1.5rem;
+      max-width: 900px;
+      animation: hero-appear 1.2s cubic-bezier(0.22,1,0.36,1) both;
+    }
+    @keyframes hero-appear {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(212,168,67,0.18);
+      border: 1px solid rgba(212,168,67,0.45);
+      color: var(--gold-light);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.45rem 1.1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(8px);
+    }
+    .hero-badge svg { width: 14px; height: 14px; }
+
     .hero-title {
-      color: white; font-weight: 300; font-style: italic;
-      text-shadow: 0 2px 40px rgba(0,0,0,0.3);
-      opacity: 0; animation: fadeUp 1s 0.6s forwards;
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      font-weight: 700;
+      color: white;
+      line-height: 1.12;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 4px 32px rgba(0,0,0,0.3);
     }
-    .hero-title strong { font-style: normal; font-weight: 600; display: block; }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
     .hero-sub {
-      margin: 1.5rem auto 2.5rem; max-width: 540px;
-      color: rgba(255,255,255,0.82); font-size: 1.05rem; font-weight: 300;
-      opacity: 0; animation: fadeUp 1s 0.9s forwards;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.80);
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
     }
-    .hero-cta { opacity: 0; animation: fadeUp 1s 1.2s forwards; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .hero-sub strong { color: var(--gold-light); font-weight: 600; }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     .btn-primary {
-      display: inline-block; padding: 1rem 2.4rem;
-      background: var(--gold); color: var(--dark);
-      font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500;
-      border-radius: 2px; transition: all 0.3s; border: none; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: linear-gradient(135deg, var(--ocean), var(--ocean-deep));
+      color: white;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      border: none; cursor: pointer;
+      box-shadow: 0 6px 30px rgba(14,165,233,0.40);
+      transition: all 0.3s;
     }
-    .btn-primary:hover { background: var(--sand-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,162,39,0.4); }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(14,165,233,0.55);
+    }
+
     .btn-outline {
-      display: inline-block; padding: 1rem 2.4rem;
-      border: 1px solid rgba(255,255,255,0.6); color: white;
-      font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 400;
-      border-radius: 2px; transition: all 0.3s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.10);
+      backdrop-filter: blur(10px);
+      color: white;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.45);
+      cursor: pointer;
+      transition: all 0.3s;
     }
-    .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: white; }
-    .hero-scroll {
-      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.20);
+      border-color: rgba(255,255,255,0.80);
+      transform: translateY(-3px);
+    }
+
+    /* Hero scroll indicator */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
       display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-      color: rgba(255,255,255,0.6); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
-      opacity: 0; animation: fadeUp 1s 1.5s forwards;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      animation: bounce 2.5s infinite;
     }
-    .scroll-line { width: 1px; height: 40px; background: rgba(255,255,255,0.4); animation: scrollLine 2s ease-in-out infinite; }
-    @keyframes scrollLine { 0%,100% { transform: scaleY(1); opacity: 0.4; } 50% { transform: scaleY(0.4); opacity: 1; } }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* ===== SERVICES STRIP ===== */
-    .services-strip {
-      background: var(--ocean-deep); padding: 3rem 5vw;
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+    .scroll-hint svg { opacity: 0.7; }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
     }
-    .service-item { text-align: center; }
-    .service-icon { width: 48px; height: 48px; margin: 0 auto 1rem; color: var(--sand); }
-    .service-icon svg { width: 100%; height: 100%; }
-    .service-item h4 { color: var(--sand); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; margin-bottom: 0.4rem; font-weight: 400; }
-    .service-item p { color: rgba(255,255,255,0.55); font-size: 0.82rem; line-height: 1.6; }
 
-    /* ===== ABOUT ===== */
-    #apropos { padding: 8rem 0; overflow: hidden; }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-    .about-images { position: relative; height: 520px; }
+    /* Stats bar */
+    .stats-bar {
+      background: white;
+      box-shadow: 0 -4px 60px rgba(14,165,233,0.12), 0 4px 40px rgba(15,23,42,0.08);
+      position: relative; z-index: 10;
+    }
+    .stats-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .stat-item {
+      padding: 1.8rem 1rem;
+      text-align: center;
+      border-right: 1px solid var(--sand-dark);
+      position: relative;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--ocean);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--gray);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 6rem 0; }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ocean);
+      margin-bottom: 0.9rem;
+    }
+    .section-eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px; height: 2px;
+      background: var(--gold);
+      border-radius: 1px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 1.1rem;
+    }
+    .section-title em { color: var(--ocean); font-style: italic; }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.75;
+      max-width: 560px;
+    }
+
+    /* ─── ABOUT ─── */
+    .about { background: var(--sand); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-image-wrap {
+      position: relative;
+    }
     .about-img-main {
-      position: absolute; top: 0; left: 0; width: 75%; height: 85%;
-      object-fit: cover; border-radius: 2px;
-      box-shadow: 20px 20px 60px rgba(26,15,5,0.15);
+      width: 100%;
+      border-radius: var(--radius-lg);
+      object-fit: cover;
+      height: 520px;
+      box-shadow: var(--shadow-card);
     }
     .about-img-accent {
-      position: absolute; bottom: 0; right: 0; width: 55%; height: 55%;
-      object-fit: cover; border-radius: 2px;
-      border: 6px solid var(--white);
-      box-shadow: 10px 10px 40px rgba(26,15,5,0.12);
+      position: absolute;
+      bottom: -2rem; right: -2rem;
+      width: 44%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      border: 4px solid white;
+      box-shadow: var(--shadow-card);
     }
     .about-badge {
-      position: absolute; top: 55%; left: 55%; transform: translate(-50%, -50%);
-      width: 100px; height: 100px; background: var(--gold); border-radius: 50%;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      z-index: 2; box-shadow: 0 8px 30px rgba(201,162,39,0.4);
+      position: absolute;
+      top: 2rem; left: -1.5rem;
+      background: white;
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
+      box-shadow: var(--shadow-card);
+      display: flex; align-items: center; gap: 0.8rem;
     }
-    .about-badge span:first-child { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: var(--dark); line-height: 1; }
-    .about-badge span:last-child { font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dark); opacity: 0.8; }
-    .about-text { }
-    .values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
-    .value-card { padding: 1.4rem; background: var(--sand-light); border-radius: 2px; border-left: 3px solid var(--gold); }
-    .value-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--ocean-deep); margin-bottom: 0.4rem; font-weight: 600; }
-    .value-card p { font-size: 0.82rem; line-height: 1.6; }
+    .about-badge-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--ocean), var(--ocean-deep));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-badge-text strong { display: block; font-size: 0.92rem; font-weight: 700; color: var(--dark); }
+    .about-badge-text span { font-size: 0.75rem; color: var(--gray); }
 
-    /* ===== BUNGALOWS ===== */
-    #hebergements { padding: 8rem 0; background: var(--sand-light); }
-    .bungalows-header { text-align: center; margin-bottom: 4rem; }
-    .bungalows-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-    .bungalow-card {
-      background: white; border-radius: 3px; overflow: hidden;
-      box-shadow: 0 4px 30px rgba(26,15,5,0.07);
-      transition: transform 0.4s, box-shadow 0.4s;
+    .about-features {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
-    .bungalow-card:hover { transform: translateY(-6px); box-shadow: 0 16px 50px rgba(26,15,5,0.12); }
-    .bungalow-img { position: relative; height: 240px; overflow: hidden; }
-    .bungalow-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
-    .bungalow-card:hover .bungalow-img img { transform: scale(1.06); }
-    .bungalow-tag {
-      position: absolute; top: 1rem; left: 1rem;
-      background: var(--gold); color: var(--dark);
-      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-      padding: 0.3rem 0.8rem; border-radius: 2px; font-weight: 500;
+    .about-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      background: white;
+      border-radius: var(--radius);
+      border-left: 3px solid var(--ocean);
+      transition: all 0.3s;
     }
-    .bungalow-body { padding: 1.8rem; }
-    .bungalow-body h3 { color: var(--ocean-deep); margin-bottom: 0.6rem; font-size: 1.4rem; }
-    .bungalow-body p { font-size: 0.88rem; margin-bottom: 1.2rem; }
-    .bungalow-features { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.5rem; }
-    .feat-tag { font-size: 0.72rem; padding: 0.3rem 0.7rem; background: var(--sand-light); color: var(--text); border-radius: 20px; letter-spacing: 0.05em; }
-    .bungalow-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--sand-light); padding-top: 1.2rem; }
-    .bungalow-capacity { font-size: 0.82rem; color: var(--text-light); }
-    .bungalow-capacity strong { color: var(--ocean); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; }
-    .btn-sm {
-      padding: 0.55rem 1.2rem; background: var(--ocean); color: white;
-      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
-      border-radius: 2px; transition: background 0.3s;
+    .about-feature:hover {
+      transform: translateX(6px);
+      box-shadow: var(--shadow-soft);
     }
-    .btn-sm:hover { background: var(--ocean-deep); }
+    .feature-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(14,165,233,0.1), rgba(14,165,233,0.05));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ocean);
+    }
+    .about-feature h4 { font-size: 0.9rem; font-weight: 700; color: var(--dark); margin-bottom: 0.2rem; }
+    .about-feature p { font-size: 0.82rem; color: var(--gray); line-height: 1.5; }
 
-    /* ===== GALERIE ===== */
-    #galerie { padding: 8rem 0; }
-    .galerie-header { text-align: center; margin-bottom: 3.5rem; }
-    .galerie-grid {
+    /* ─── SERVICES ─── */
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(3, 200px);
-      gap: 8px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3.5rem;
     }
-    .gal-item { overflow: hidden; border-radius: 2px; position: relative; cursor: pointer; }
-    .gal-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
-    .gal-item:hover img { transform: scale(1.08); }
-    .gal-item .overlay { position: absolute; inset: 0; background: rgba(13,61,82,0); transition: background 0.4s; display: flex; align-items: center; justify-content: center; }
-    .gal-item:hover .overlay { background: rgba(13,61,82,0.35); }
-    .g1 { grid-column: span 5; grid-row: span 2; }
-    .g2 { grid-column: span 4; grid-row: span 1; }
-    .g3 { grid-column: span 3; grid-row: span 1; }
-    .g4 { grid-column: span 4; grid-row: span 1; }
-    .g5 { grid-column: span 3; grid-row: span 1; }
-    .g6 { grid-column: span 4; grid-row: span 1; }
-    .g7 { grid-column: span 5; grid-row: span 1; }
-    .g8 { grid-column: span 3; grid-row: span 1; }
-
-    /* ===== TESTIMONIALS ===== */
-    .testimonials { padding: 6rem 0; background: var(--ocean-deep); }
-    .testimonials .container { text-align: center; }
-    .testimonials .section-label { color: var(--sand); }
-    .testimonials h2 { color: white; margin-bottom: 3rem; }
-    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-    .testi-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; padding: 2rem; text-align: left; }
-    .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
-    .testi-card p { color: rgba(255,255,255,0.72); font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; line-height: 1.7; }
-    .testi-author { margin-top: 1.5rem; display: flex; align-items: center; gap: 0.8rem; }
-    .testi-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--ocean-light); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; }
-    .testi-info strong { display: block; color: var(--sand); font-size: 0.85rem; font-weight: 500; }
-    .testi-info span { color: rgba(255,255,255,0.45); font-size: 0.75rem; }
-
-    /* ===== CONTACT ===== */
-    #contact { padding: 8rem 0; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-    .contact-info h2 { margin-bottom: 0.5rem; }
-    .contact-info > p { margin-bottom: 3rem; }
-    .contact-items { display: flex; flex-direction: column; gap: 1.8rem; }
-    .contact-item { display: flex; gap: 1.2rem; align-items: flex-start; }
-    .contact-icon { width: 48px; height: 48px; background: var(--sand-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .contact-icon svg { width: 22px; height: 22px; stroke: var(--ocean); }
-    .val-icon { width: 18px; height: 18px; vertical-align: middle; margin-right: 0.4rem; stroke: var(--ocean); }
-    .gal-zoom { width: 28px; height: 28px; opacity: 0; transition: opacity 0.4s; }
-    .gal-item:hover .gal-zoom { opacity: 1; }
-    .contact-item-text strong { display: block; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ocean); margin-bottom: 0.3rem; font-family: 'Jost', sans-serif; font-weight: 500; }
-    .contact-item-text a, .contact-item-text p { color: var(--text); font-size: 0.95rem; }
-    .contact-item-text a:hover { color: var(--ocean); }
-    .map-embed { margin-top: 2.5rem; border-radius: 3px; overflow: hidden; border: 1px solid var(--sand); }
-    .map-embed iframe { width: 100%; height: 220px; border: none; }
-    /* FORM */
-    .contact-form-wrap h3 { margin-bottom: 0.5rem; }
-    .contact-form-wrap > p { margin-bottom: 2rem; }
-    .form-group { margin-bottom: 1.4rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    label { display: block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ocean); margin-bottom: 0.5rem; font-weight: 500; }
-    input, textarea, select {
-      width: 100%; padding: 0.85rem 1rem; border: 1px solid #d9cdb8;
-      background: var(--sand-light); border-radius: 2px;
-      font-family: 'Jost', sans-serif; font-size: 0.92rem; color: var(--text);
-      transition: border-color 0.3s, box-shadow 0.3s; outline: none;
+    .service-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2.2rem;
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(14,165,233,0.08);
+      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+      position: relative;
+      overflow: hidden;
     }
-    input:focus, textarea:focus, select:focus { border-color: var(--ocean-light); box-shadow: 0 0 0 3px rgba(58,143,168,0.12); }
-    textarea { resize: vertical; min-height: 120px; }
-    .btn-submit {
-      width: 100%; padding: 1rem; background: var(--ocean); color: white;
-      font-family: 'Jost', sans-serif; font-size: 0.82rem; letter-spacing: 0.2em;
-      text-transform: uppercase; font-weight: 500; border: none; border-radius: 2px;
-      cursor: pointer; transition: background 0.3s, transform 0.2s;
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(14,165,233,0.04), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
     }
-    .btn-submit:hover { background: var(--ocean-deep); transform: translateY(-1px); }
-    .form-success { display: none; text-align: center; padding: 2rem; background: #e6f4f1; border-radius: 2px; color: #1a6b55; }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(14,165,233,0.25);
+    }
+    .service-card:hover::before { opacity: 1; }
 
-    /* ===== FOOTER ===== */
-    footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 4rem 5vw 2rem; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
-    .footer-brand .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--sand); font-weight: 600; margin-bottom: 0.3rem; }
-    .footer-brand .sub { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; font-weight: 400; }
-    .footer-brand p { font-size: 0.85rem; line-height: 1.8; max-width: 280px; }
-    .footer-col h4 { font-family: 'Cormorant Garamond', serif; color: var(--sand); font-size: 1.1rem; font-weight: 400; margin-bottom: 1.2rem; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .footer-col ul a { font-size: 0.85rem; transition: color 0.3s; }
-    .footer-col ul a:hover { color: var(--sand); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
-    .footer-bottom p { font-size: 0.78rem; }
-
-    /* ===== FLOATING WHATSAPP ===== */
-    .whatsapp-float {
-      position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
-      width: 58px; height: 58px; border-radius: 50%;
-      background: #25D366; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.5); cursor: pointer;
-      animation: pulse-wa 2.5s ease-in-out infinite;
+    .service-card-icon {
+      width: 58px; height: 58px;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.4rem;
       transition: transform 0.3s;
     }
-    .whatsapp-float:hover { transform: scale(1.1); animation: none; }
-    .whatsapp-float svg { width: 30px; height: 30px; fill: white; }
-    @keyframes pulse-wa { 0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); } 50% { box-shadow: 0 4px 35px rgba(37,211,102,0.8); } }
-    .whatsapp-tooltip {
-      position: absolute; right: calc(100% + 12px); top: 50%; transform: translateY(-50%);
-      background: var(--dark); color: white; font-size: 0.75rem; white-space: nowrap;
-      padding: 0.5rem 0.9rem; border-radius: 4px; opacity: 0; pointer-events: none;
-      transition: opacity 0.3s;
+    .service-card:hover .service-card-icon { transform: scale(1.08) rotate(-4deg); }
+
+    .icon-blue { background: linear-gradient(135deg, #dbeafe, #bfdbfe); color: var(--ocean-deep); }
+    .icon-gold { background: linear-gradient(135deg, #fef9c3, #fde68a); color: #92400e; }
+    .icon-teal { background: linear-gradient(135deg, #d1fae5, #a7f3d0); color: #065f46; }
+    .icon-purple { background: linear-gradient(135deg, #ede9fe, #ddd6fe); color: #5b21b6; }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.7rem;
+      line-height: 1.3;
     }
-    .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; }
+    .service-card p {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+    .service-arrow {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      margin-top: 1.2rem;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--ocean);
+      cursor: pointer;
+      transition: gap 0.2s;
+    }
+    .service-card:hover .service-arrow { gap: 0.7rem; }
 
-    /* ===== SCROLL ANIMATIONS ===== */
-    .reveal { opacity: 1; transform: none; transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.hidden { opacity: 0; transform: translateY(30px); }
-    .reveal.visible { opacity: 1; transform: none; }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
+    /* ─── DESTINATIONS ─── */
+    .destinations { background: var(--dark); }
+    .destinations .section-title { color: white; }
+    .destinations .section-desc { color: rgba(255,255,255,0.6); }
 
-    /* ===== MOBILE MENU ===== */
-    .nav-menu {
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 280px 280px;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .dest-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .dest-card:nth-child(1) { grid-column: span 5; grid-row: span 2; }
+    .dest-card:nth-child(2) { grid-column: span 4; }
+    .dest-card:nth-child(3) { grid-column: span 3; }
+    .dest-card:nth-child(4) { grid-column: span 3; }
+    .dest-card:nth-child(5) { grid-column: span 4; }
+
+    .dest-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    }
+    .dest-card:hover .dest-img { transform: scale(1.08); }
+
+    .dest-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(0deg, rgba(10,20,40,0.80) 0%, rgba(10,20,40,0.05) 60%);
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.4rem;
+      transition: background 0.4s;
+    }
+    .dest-card:hover .dest-overlay {
+      background: linear-gradient(0deg, rgba(14,165,233,0.70) 0%, rgba(14,165,233,0.10) 60%);
+    }
+    .dest-tag {
+      display: inline-block;
+      background: rgba(212,168,67,0.85);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 50px;
+      margin-bottom: 0.5rem;
+      width: fit-content;
+    }
+    .dest-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.2rem;
+    }
+    .dest-sub {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.75);
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .dest-card:nth-child(1) .dest-name { font-size: 1.8rem; }
+
+    /* ─── WHY US ─── */
+    .why { background: var(--sand); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+    .why-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2.2rem 1.8rem;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(15,23,42,0.07);
+      border: 1px solid var(--sand-dark);
+      transition: all 0.4s;
+    }
+    .why-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(14,165,233,0.3);
+    }
+    .why-icon-wrap {
+      width: 68px; height: 68px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--ocean), var(--ocean-deep));
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.3rem;
+      color: white;
+      box-shadow: 0 8px 24px rgba(14,165,233,0.30);
+      transition: transform 0.3s;
+    }
+    .why-card:hover .why-icon-wrap { transform: rotate(-6deg) scale(1.06); }
+    .why-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.6rem;
+    }
+    .why-card p {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+    .why-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 700;
+      color: rgba(14,165,233,0.10);
+      margin-bottom: -0.5rem;
+    }
+
+    /* ─── CONTACT ─── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-item {
       display: flex;
+      gap: 1.1rem;
+      align-items: flex-start;
     }
-    @media (max-width: 900px) {
-      .nav-toggle { display: flex; }
-      .nav-menu {
-        display: none;
-        position: fixed; inset: 0;
-        background: var(--ocean-deep);
-        flex-direction: column;
-        align-items: center; justify-content: center;
-        gap: 2.5rem;
-        z-index: 1000;
-      }
-      .nav-menu.open { display: flex; }
-      .nav-links { flex-direction: column; gap: 2rem; align-items: center; }
-      .nav-links a { font-size: 1.1rem; color: white !important; letter-spacing: 0.15em; }
-      .btn-reserver { color: var(--dark) !important; }
+    .contact-icon-wrap {
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(14,165,233,0.12), rgba(14,165,233,0.05));
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ocean);
+      border: 1px solid rgba(14,165,233,0.15);
+    }
+    .contact-item h4 { font-size: 0.85rem; font-weight: 700; color: var(--dark); margin-bottom: 0.3rem; }
+    .contact-item p, .contact-item a {
+      font-size: 0.90rem;
+      color: var(--gray);
+      line-height: 1.6;
+      text-decoration: none;
+    }
+    .contact-item a:hover { color: var(--ocean); }
+
+    .contact-form-wrap {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--sand-dark);
+    }
+    .form-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.4rem;
+    }
+    .form-subtitle {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 1.8rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-bottom: 1rem;
+    }
+    .form-group.full { grid-column: span 2; }
+    .form-group label {
+      font-size: 0.80rem;
+      font-weight: 600;
+      color: var(--dark);
+      letter-spacing: 0.03em;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--sand-dark);
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--dark);
+      background: var(--gray-light);
+      transition: all 0.25s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--ocean);
+      background: white;
+      box-shadow: 0 0 0 3px rgba(14,165,233,0.12);
+    }
+    .form-group textarea { min-height: 110px; resize: vertical; }
+
+    .btn-submit {
+      width: 100%;
+      padding: 0.95rem;
+      background: linear-gradient(135deg, var(--ocean), var(--ocean-deep));
+      color: white;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+      box-shadow: 0 6px 24px rgba(14,165,233,0.35);
+      transition: all 0.3s;
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(14,165,233,0.50);
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1100px) {
-      .bungalows-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      color: var(--ocean-deep);
+      font-weight: 600;
     }
-    @media (max-width: 860px) {
-      .services-strip { grid-template-columns: repeat(2, 1fr); }
-      .about-grid { grid-template-columns: 1fr; }
-      .about-images { height: 350px; }
-      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .testi-grid { grid-template-columns: 1fr; }
-      .galerie-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
-      .g1,.g2,.g3,.g4,.g5,.g6,.g7,.g8 { grid-column: span 1; grid-row: span 1; height: 200px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .values-grid { grid-template-columns: 1fr; }
+    .success-msg svg { color: #22c55e; margin-bottom: 0.5rem; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.7);
+      padding: 4.5rem 0 2rem;
     }
-    @media (max-width: 600px) {
-      .bungalows-grid { grid-template-columns: 1fr; }
-      .services-strip { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand .logo-main { color: white; font-size: 1.5rem; }
+    .footer-brand .logo-sub { color: var(--ocean-light); }
+    .footer-desc {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+    }
+    .footer-social {
+      display: flex;
+      gap: 0.7rem;
+      margin-top: 1.4rem;
+    }
+    .social-btn {
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: all 0.25s;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .social-btn:hover {
+      background: var(--ocean);
+      color: white;
+      border-color: var(--ocean);
+      transform: translateY(-3px);
+    }
+
+    .footer-col h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: white;
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .footer-col ul a:hover { color: var(--ocean-light); }
+    .footer-col ul a::before {
+      content: '→';
+      font-size: 0.7rem;
+      color: var(--ocean);
+    }
+
+    .footer-contact-item {
+      display: flex; align-items: flex-start; gap: 0.7rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+    .footer-contact-item svg { flex-shrink: 0; margin-top: 2px; color: var(--ocean); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.80rem;
+      color: rgba(255,255,255,0.35);
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.45); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--ocean-light); }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+    .fade-up:nth-child(5) { transition-delay: 0.4s; }
+
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1);
+    }
+    .stagger.visible > *:nth-child(1) { opacity:1; transform:translateY(0); transition-delay: 0.05s; }
+    .stagger.visible > *:nth-child(2) { opacity:1; transform:translateY(0); transition-delay: 0.15s; }
+    .stagger.visible > *:nth-child(3) { opacity:1; transform:translateY(0); transition-delay: 0.25s; }
+    .stagger.visible > *:nth-child(4) { opacity:1; transform:translateY(0); transition-delay: 0.35s; }
+    .stagger.visible > *:nth-child(5) { opacity:1; transform:translateY(0); transition-delay: 0.45s; }
+    .stagger.visible > *:nth-child(6) { opacity:1; transform:translateY(0); transition-delay: 0.55s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-img-main { height: 360px; }
+      .about-img-accent { display: none; }
+      .about-badge { left: 1rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .dest-grid {
+        grid-template-rows: 220px 220px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .btn-cta-nav { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 4rem 0; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item:nth-child(3) { border-top: 1px solid var(--sand-dark); border-right: 1px solid var(--sand-dark); }
+      .stat-item:nth-child(4) { border-top: 1px solid var(--sand-dark); border-right: none; }
+      .dest-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, 200px);
+      }
+      .dest-card:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+      .dest-card:nth-child(2),
+      .dest-card:nth-child(3),
+      .dest-card:nth-child(4),
+      .dest-card:nth-child(5) { grid-column: span 1; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       .form-row { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: span 1; }
+      .footer-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 2rem; }
+      .hero-sub { font-size: 0.95rem; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+      .dest-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .dest-card { height: 200px; }
+      .dest-card:nth-child(1) { grid-column: span 1; height: 240px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav id="navbar">
-    <a href="#accueil" class="nav-logo">
-      <span class="brand">TROIS A Soleil</span>
-      <span class="sub">Foulpointe · Madagascar</span>
-    </a>
-    <div class="nav-menu" id="navMenu">
-      <div class="nav-links">
-        <a href="#accueil">Accueil</a>
-        <a href="#apropos">À Propos</a>
-        <a href="#hebergements">Bungalows</a>
-        <a href="#galerie">Galerie</a>
-        <a href="#contact">Contact</a>
-        <a href="https://wa.me/261341810248" target="_blank" class="btn-reserver">Réserver</a>
+<!-- ─── NAVBAR ─── -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
       </div>
-    </div>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <div class="logo-text">
+        <span class="logo-main">Nathéa Voyages</span>
+        <span class="logo-sub">Travel Planner & Réceptif</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#destinations">Destinations</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="btn-cta-nav">Réserver maintenant</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
-  </nav>
+  </div>
+</nav>
 
-  <!-- HERO -->
-  <section id="accueil">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">✦ Mahavelona · Foulpointe · Madagascar ✦</p>
-      <h1 class="hero-title">
-        <em>L'Évasion</em>
-        <strong>Au Bord de l'Océan Indien</strong>
-      </h1>
-      <p class="hero-sub">Des bungalows spacieux et chaleureux, nichés entre lagon turquoise et cocotiers, pour des séjours inoubliables en famille ou entre amis.</p>
-      <div class="hero-cta">
-        <a href="https://wa.me/261341810248?text=Bonjour%2C%20je%20souhaite%20réserver%20un%20bungalow%20à%20TROIS%20A%20Soleil%20Foulpointe" target="_blank" class="btn-primary">Réserver maintenant</a>
-        <a href="#hebergements" class="btn-outline">Voir nos bungalows</a>
-      </div>
-    </div>
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
-      <span>Défiler</span>
-    </div>
-  </section>
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <a href="#accueil" class="mobile-link">Accueil</a>
+  <a href="#destinations" class="mobile-link">Destinations</a>
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#apropos" class="mobile-link">À propos</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="#contact" class="mobile-cta mobile-link">Réserver maintenant</a>
+</div>
 
-    <div class="services-strip">
-    <div class="service-item reveal">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c2-2 4-3 6-3s4 2 6 2 4-1 6-3"/><path d="M3 12c2-2 4-3 6-3s4 2 6 2 4-1 6-3"/><path d="M21 7c-2 2-4 3-6 3s-4-2-6-2-4 1-6 3"/></svg>
-      </div>
-      <h4>Plage Privée</h4>
-      <p>Accès direct à la plage de Foulpointe, eaux cristallines</p>
+<!-- ─── HERO ─── -->
+<section class="hero" id="accueil">
+  <div class="hero-bg"></div>
+  <div class="hero-particles">
+    <div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div><div class="particle"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Agence agréée · Licence B · Partenaires Internationaux
     </div>
-    <div class="service-item reveal reveal-delay-1">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-      </div>
-      <h4>Cadre Naturel</h4>
-      <p>Environnement tropical préservé, faune et flore locales</p>
-    </div>
-    <div class="service-item reveal reveal-delay-2">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      </div>
-      <h4>Grands Bungalows</h4>
-      <p>Capacité 5 personnes et plus, idéal familles et groupes</p>
-    </div>
-    <div class="service-item reveal reveal-delay-3">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-      </div>
-      <h4>Restauration</h4>
-      <p>Saveurs malgaches authentiques, produits locaux frais</p>
+    <h1 class="hero-title">
+      Voyagez en toute <em>confiance</em>,<br>conformité et sérénité
+    </h1>
+    <p class="hero-sub">
+      Découvrez Madagascar et le monde avec <strong>Nathéa Voyages</strong> —<br>
+      votre partenaire de confiance pour des expériences inoubliables.
+    </p>
+    <div class="hero-actions">
+      <a href="#destinations" class="btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        Découvrir
+      </a>
+      <a href="#contact" class="btn-outline">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77A16 16 0 0 0 16 16.82l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z"/></svg>
+        Nous contacter
+      </a>
     </div>
   </div>
+  <div class="scroll-hint">
+    <span>Défiler</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+  </div>
+</section>
 
-  <!-- À PROPOS -->
-  <section id="apropos">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-images reveal">
-          <img class="about-img-main"
-            src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/605633681_1410688090759100_2928498703987762567_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEuZ518dgaw86OxLCB3b5aGN0cIqxj6lTc3RwirGPqVN4bySKrITFmq6uxw7-fFX-27jtkRzziBbvU2xGrW441a&_nc_ohc=0RK0SDWVm14Q7kNvwGv5dXD&_nc_oc=AdoCaUyBazEtSNqsSUXZl5Z9vuKL9X_mYmNyRWuHXjkBec5yn6aON9271sH9QUlNuG8&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=Q6S3g6i3gIalZY_J576ODg&_nc_ss=7a32e&oh=00_Afz8tdbTar81OvWS3O_jpQhZY25Zs5rifbEHian04Aft_Q&oe=69C82B6B"
-            alt="Bungalow TROIS A Soleil Foulpointe" />
-          <img class="about-img-accent"
-            src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/586211534_1382171346944108_5206956688517314165_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeH2p2WdKQAYyYj9Etg_VfbY8tAWuaoTRPTy0Ba5qhNE9OSODiOFPZd9-H1QF_iJqtddZP1LKMcHBQWu5ewJwMWe&_nc_ohc=tv-X3ZpkzW8Q7kNvwGoRWHH&_nc_oc=Adr-EEIN_ZBj0xM_ags1MA15Z_2-HD2Rpd8hqGLA7Zr45UW3ihWHHi-WBw1eHImz0Qg&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=Pr1Xy8XNcdSevdpI-Xw38g&_nc_ss=7a32e&oh=00_AfwHjJRGUX6tzUSgxZkiy5WPvAPRmTYNg6rqI5-RQ_uoQQ&oe=69C82FAF"
-            alt="Plage de Foulpointe Madagascar" />
-          <div class="about-badge">
-            <span>★</span>
-            <span>Hôtel de Charme</span>
+<!-- Stats Bar -->
+<div class="stats-bar">
+  <div class="stats-inner stagger">
+    <div class="stat-item">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Voyageurs accompagnés</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">12+</div>
+      <div class="stat-label">Partenaires internationaux</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">98%</div>
+      <div class="stat-label">Satisfaction client</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Destinations couvertes</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── ABOUT ─── -->
+<section class="about" id="apropos">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-wrap fade-up">
+        <img
+          src="https://images.unsplash.com/photo-1509233725247-49e657c54213?w=800&q=80&auto=format&fit=crop"
+          alt="Madagascar paysage baobabs"
+          class="about-img-main"
+          loading="lazy"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&q=80&auto=format&fit=crop"
+          alt="Plage de Madagascar"
+          class="about-img-accent"
+          loading="lazy"
+        />
+        <div class="about-badge">
+          <div class="about-badge-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="white" stroke-width="2.2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+          </div>
+          <div class="about-badge-text">
+            <strong>Agence Agréée</strong>
+            <span>Licence B officielle</span>
           </div>
         </div>
-        <div class="about-text reveal reveal-delay-2">
-          <span class="section-label">Notre Histoire</span>
-          <h2>Bienvenue au<br /><em>TROIS A Soleil</em></h2>
-          <div class="section-divider"></div>
-          <p>Situé à Mahavelona Foulpointe, sur la côte est de Madagascar, notre hôtel vous accueille dans un cadre paradisiaque où la mer, le soleil et la nature tropicale se conjuguent pour offrir un séjour d'exception.</p>
-          <p style="margin-top: 1rem;">Que vous veniez en famille, entre amis ou en couple, nos bungalows spacieux sont conçus pour vous garantir confort, intimité et un contact authentique avec la beauté de Madagascar.</p>
-          <div class="values-grid">
-            <div class="value-card">
-              <h4>
-                <svg class="val-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c2-2 4-3 6-3s4 2 6 2 4-1 6-3"/><path d="M3 12c2-2 4-3 6-3s4 2 6 2 4-1 6-3"/></svg>
-                Sérénité
-              </h4>
-              <p>Un espace calme et paisible, loin de l'agitation du quotidien</p>
+      </div>
+
+      <div class="fade-up">
+        <div class="section-eyebrow">Notre identité</div>
+        <h2 class="section-title">
+          Nathéa Voyages —<br><em>Travel Planner</em> &amp; Réceptif Madagascar
+        </h2>
+        <p class="section-desc">
+          Fondée avec la passion du voyage et l'exigence du service, Nathéa Voyages est votre agence de confiance basée à Antananarivo. Nous vous accompagnons de la conception à la réalisation de votre voyage idéal.
+        </p>
+
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             </div>
-            <div class="value-card">
-              <h4>
-                <svg class="val-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 6v6l4 2"/></svg>
-                Nature
-              </h4>
-              <p>Immersion totale dans la luxuriante biodiversité malgache</p>
+            <div>
+              <h4>Agence agréée – Licence B</h4>
+              <p>Opérant sous agrément officiel du ministère du Tourisme malgache, garant de notre professionnalisme et légitimité.</p>
             </div>
-            <div class="value-card">
-              <h4>
-                <svg class="val-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                Accueil
-              </h4>
-              <p>Hospitalité chaleureuse et service personnalisé à chaque instant</p>
+          </div>
+          <div class="about-feature">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg>
             </div>
-            <div class="value-card">
-              <h4>
-                <svg class="val-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
-                Confort
-              </h4>
-              <p>Équipements modernes dans un cadre authentique et tropical</p>
+            <div>
+              <h4>Autorisation ministérielle</h4>
+              <p>Dotée d'une autorisation officielle pour l'organisation de voyages nationaux et internationaux.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div>
+              <h4>Réseau international de partenaires agréés</h4>
+              <p>Collaboration avec des agences certifiées dans le monde entier pour des voyages sur mesure sans frontières.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- HÉBERGEMENTS -->
-  <section id="hebergements">
-    <div class="container">
-      <div class="bungalows-header reveal">
-        <span class="section-label">Nos Hébergements</span>
-        <h2>Bungalows & Chambres</h2>
-        <div class="section-divider center"></div>
-        <p style="max-width: 560px; margin: 0 auto;">Des espaces généreux et bien équipés, pensés pour accueillir familles et groupes dans un confort tropical authentique.</p>
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="container">
+    <div class="fade-up" style="max-width:600px">
+      <div class="section-eyebrow">Ce que nous faisons</div>
+      <h2 class="section-title">Des services <em>sur mesure</em><br>pour chaque voyageur</h2>
+      <p class="section-desc">De la planification à l'arrivée, nous gérons chaque détail pour que vous profitiez pleinement de votre aventure.</p>
+    </div>
+    <div class="services-grid stagger">
+      <div class="service-card">
+        <div class="service-card-icon icon-blue">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Organisation de voyage sur mesure</h3>
+        <p>Itinéraires personnalisés conçus selon vos envies, votre budget et votre style de voyage. Chaque détail est pensé pour vous.</p>
+        <div class="service-arrow">
+          En savoir plus
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m5 12h14m-7-7 7 7-7 7"/></svg>
+        </div>
       </div>
-      <div class="bungalows-grid">
-        <!-- Card 1 -->
-        <div class="bungalow-card reveal">
-          <div class="bungalow-img">
-            <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/607971419_1410687357425840_2539636956319507396_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHypQbx046WUR5mIEIyDWmQv9vw7AlhG6i_2_DsCWEbqP5M5SGsKzsZ7-ed0idLJL-QmxOl9UX1Wcd_CIzsiAIh&_nc_ohc=7Lq6Bt48j9gQ7kNvwHmViLm&_nc_oc=AdpQkoIWuNdHVMNOMMpg6QwY4esATGQoQC6H9cJmtShLJqOlhjooyQk7fvn6vkV6_C0&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=SCz0G34gQDiHe2rPVQj3vA&_nc_ss=7a32e&oh=00_AfzaxOXVf9x2352RDpC-zgtQM6-nLnsrfxiq9fHZa3bYBg&oe=69C820A1" alt="Bungalow Famille" />
-            <span class="bungalow-tag">Famille</span>
-          </div>
-          <div class="bungalow-body">
-            <h3>Bungalow Grand Famille</h3>
-            <p>Spacieux et lumineux, ce bungalow dispose de plusieurs chambres confortables avec vue sur le jardin tropical. Parfait pour les grandes familles.</p>
-            <div class="bungalow-features">
-              <span class="feat-tag">Climatisation</span>
-              <span class="feat-tag">Terrasse</span>
-              <span class="feat-tag">Wi-Fi</span>
-              <span class="feat-tag">Cuisine</span>
-            </div>
-            <div class="bungalow-footer">
-              <div class="bungalow-capacity">Capacité : <strong>5–8 pers.</strong></div>
-              <a href="https://wa.me/261341810248?text=Bonjour%2C%20je%20voudrais%20réserver%20le%20Bungalow%20Grand%20Famille" target="_blank" class="btn-sm">Réserver</a>
-            </div>
+      <div class="service-card">
+        <div class="service-card-icon icon-gold">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <h3>Réceptif touristique à Madagascar</h3>
+        <p>Accueil, coordination locale et accompagnement complet pour les voyageurs arrivant à Madagascar depuis l'international.</p>
+        <div class="service-arrow">
+          En savoir plus
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m5 12h14m-7-7 7 7-7 7"/></svg>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon icon-teal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Réservation hôtels, circuits &amp; transport</h3>
+        <p>Accès à un large réseau d'hébergements, de circuits guidés et de solutions de transport pour tous les profils et budgets.</p>
+        <div class="service-arrow">
+          En savoir plus
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m5 12h14m-7-7 7 7-7 7"/></svg>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon icon-purple">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Assistance &amp; accompagnement</h3>
+        <p>Un suivi personnalisé avant, pendant et après votre voyage. Notre équipe est disponible pour répondre à toutes vos questions.</p>
+        <div class="service-arrow">
+          En savoir plus
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m5 12h14m-7-7 7 7-7 7"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DESTINATIONS ─── -->
+<section class="destinations" id="destinations">
+  <div class="container">
+    <div class="fade-up" style="max-width:600px">
+      <div class="section-eyebrow" style="color:var(--ocean-light)">Explorez</div>
+      <h2 class="section-title">Destinations <em>de rêve</em></h2>
+      <p class="section-desc">Madagascar et ses merveilles naturelles — plages paradisiaques, forêts mystérieuses, faune unique au monde.</p>
+    </div>
+    <div class="dest-grid stagger">
+      <div class="dest-card">
+        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=900&q=80&auto=format&fit=crop" alt="Plage de Nosy Be" class="dest-img" loading="lazy" />
+        <div class="dest-overlay">
+          <span class="dest-tag">Île paradisiaque</span>
+          <div class="dest-name">Nosy Be</div>
+          <div class="dest-sub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Nord de Madagascar
           </div>
         </div>
-        <!-- Card 2 -->
-        <div class="bungalow-card reveal reveal-delay-1">
-          <div class="bungalow-img">
-            <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/608128309_1413250700502839_1541914859464986824_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHCdV2jvoGhCjssuyCZFsjnTJbeLEkk_yxMlt4sSST_LENKZzRx80Gt7Gmu6iNstCwNd70XnuGsb_9To0cKIDpv&_nc_ohc=znKG5UPcpOYQ7kNvwFm7E8m&_nc_oc=Adp593fgSMHbe9c1ibGdMBqIxTSgkp29kFS28l6VLoNNpV6fmRsaeuXvq-dCLQLDtqk&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=8UWwXKtWbG5sc3fz0CTmuQ&_nc_ss=7a32e&oh=00_AfyoQwLwSC2KQVjWZLjxC6P4WogcpKqI1SJpNoPJD-bBDg&oe=69C819C2" alt="Bungalow Vue Mer" />
-            <span class="bungalow-tag">Vue Mer</span>
-          </div>
-          <div class="bungalow-body">
-            <h3>Bungalow Vue Océan</h3>
-            <p>Réveillez-vous chaque matin avec une vue imprenable sur l'Océan Indien. Ce bungalow premium offre une expérience tropicale inoubliable.</p>
-            <div class="bungalow-features">
-              <span class="feat-tag">Vue mer</span>
-              <span class="feat-tag">Climatisation</span>
-              <span class="feat-tag">Terrasse privée</span>
-              <span class="feat-tag">Wi-Fi</span>
-            </div>
-            <div class="bungalow-footer">
-              <div class="bungalow-capacity">Capacité : <strong>5–7 pers.</strong></div>
-              <a href="https://wa.me/261341810248?text=Bonjour%2C%20je%20voudrais%20réserver%20le%20Bungalow%20Vue%20Océan" target="_blank" class="btn-sm">Réserver</a>
-            </div>
+      </div>
+      <div class="dest-card">
+        <img src="https://images.unsplash.com/photo-1509233725247-49e657c54213?w=600&q=80&auto=format&fit=crop" alt="Allée des baobabs" class="dest-img" loading="lazy" />
+        <div class="dest-overlay">
+          <span class="dest-tag">Nature & Safari</span>
+          <div class="dest-name">Allée des Baobabs</div>
+          <div class="dest-sub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Morondava
           </div>
         </div>
-        <!-- Card 3 -->
-        <div class="bungalow-card reveal reveal-delay-2">
-          <div class="bungalow-img">
-            <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/607250550_1410688200759089_3251627829136163927_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFxhGwJ_hPs2CfqWw_TMnIYP29sk-CvHCg_b2yT4K8cKOJ1HPvukd9Ww2HS8W5JiDHVvNUOK2hS1EnAmbxopYPl&_nc_ohc=lxy1NjZrR-MQ7kNvwF0i-FG&_nc_oc=Adr1UhirXOKlbid1Vutf3dk1vQ3Rl1ALDR6znMPqmv7zU0XQbnhd2zyh8D6OAE1k3PA&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=X57xIP6-rHJFghNV5JwsRg&_nc_ss=7a32e&oh=00_AfyHSqZvjXrqAjwDTYwV59pD5EHfIJV1YX-8LjZmADWXVw&oe=69C8069F" alt="Bungalow Groupe" />
-            <span class="bungalow-tag">Groupe</span>
+      </div>
+      <div class="dest-card">
+        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=600&q=80&auto=format&fit=crop" alt="Faune Madagascar" class="dest-img" loading="lazy" />
+        <div class="dest-overlay">
+          <span class="dest-tag">Biodiversité</span>
+          <div class="dest-name">Parc Ranomafana</div>
+          <div class="dest-sub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Haute-Matsiatra
           </div>
-          <div class="bungalow-body">
-            <h3>Bungalow Grand Groupe</h3>
-            <p>Idéal pour les groupes d'amis ou séminaires, ce vaste bungalow dispose d'espaces de vie communs et d'équipements pour accueillir confortablement tous vos convives.</p>
-            <div class="bungalow-features">
-              <span class="feat-tag">Salon commun</span>
-              <span class="feat-tag">BBQ</span>
-              <span class="feat-tag">Climatisation</span>
-              <span class="feat-tag">Parking</span>
-            </div>
-            <div class="bungalow-footer">
-              <div class="bungalow-capacity">Capacité : <strong>8–12 pers.</strong></div>
-              <a href="https://wa.me/261341810248?text=Bonjour%2C%20je%20voudrais%20réserver%20le%20Bungalow%20Grand%20Groupe" target="_blank" class="btn-sm">Réserver</a>
-            </div>
+        </div>
+      </div>
+      <div class="dest-card">
+        <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=600&q=80&auto=format&fit=crop" alt="Voyage Tsingy" class="dest-img" loading="lazy" />
+        <div class="dest-overlay">
+          <span class="dest-tag">Aventure</span>
+          <div class="dest-name">Tsingy de Bemaraha</div>
+          <div class="dest-sub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Patrimoine UNESCO
+          </div>
+        </div>
+      </div>
+      <div class="dest-card">
+        <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=600&q=80&auto=format&fit=crop" alt="Plage Sainte Marie" class="dest-img" loading="lazy" />
+        <div class="dest-overlay">
+          <span class="dest-tag">Île & Plongée</span>
+          <div class="dest-name">Île Sainte-Marie</div>
+          <div class="dest-sub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Côte Est
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- GALERIE -->
-  <section id="galerie">
-    <div class="container">
-      <div class="galerie-header reveal">
-        <span class="section-label">Notre Cadre</span>
-        <h2>Galerie Photos</h2>
-        <div class="section-divider center"></div>
+<!-- ─── WHY US ─── -->
+<section class="why">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;margin:0 auto 1rem;max-width:560px">
+      <div class="section-eyebrow" style="justify-content:center">Nos atouts</div>
+      <h2 class="section-title" style="text-align:center">Pourquoi choisir <em>Nathéa Voyages</em> ?</h2>
+      <p class="section-desc" style="margin:0 auto">Nous mettons tout en œuvre pour que chaque voyage soit une expérience mémorable, sans stress et en toute sécurité.</p>
+    </div>
+    <div class="why-grid stagger">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <div class="why-icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Fiabilité</h3>
+        <p>Agence officielle, agréée et reconnue. Votre voyage est entre des mains professionnelles et responsables.</p>
       </div>
-      <div class="galerie-grid reveal">
-        <div class="gal-item g1">
-          <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/607431633_1410688220759087_3337020552100640170_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEEi6bKswzXQGdQE1zhHMi_wP5hnNPQ-AHA_mGc09D4AR6molzW7aYAuWpng7MOEYOp0ZyJlpqQU3Ki_qbHAdKo&_nc_ohc=3xYx99gfMC0Q7kNvwFbuA_O&_nc_oc=AdoSomIE8ka-EEAW3pgthIuoqtSStDfFBiPsc_spx30pzsQgeiL_Ph6eiryYA3WimuI&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=iNNJOdBXZfBVv28HXDjBlA&_nc_ss=7a32e&oh=00_Afx9ZzHtEaoxpwO7gWCPDHMtd9xV_oObZfyXegqTQUTgSQ&oe=69C80DF8" alt="TROIS A Soleil Foulpointe" />
-          <div class="overlay"><svg class="gal-zoom" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <div class="why-icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
-        <div class="gal-item g2">
-          <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/608128309_1413250700502839_1541914859464986824_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHCdV2jvoGhCjssuyCZFsjnTJbeLEkk_yxMlt4sSST_LENKZzRx80Gt7Gmu6iNstCwNd70XnuGsb_9To0cKIDpv&_nc_ohc=znKG5UPcpOYQ7kNvwFm7E8m&_nc_oc=Adp593fgSMHbe9c1ibGdMBqIxTSgkp29kFS28l6VLoNNpV6fmRsaeuXvq-dCLQLDtqk&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=8UWwXKtWbG5sc3fz0CTmuQ&_nc_ss=7a32e&oh=00_AfyoQwLwSC2KQVjWZLjxC6P4WogcpKqI1SJpNoPJD-bBDg&oe=69C819C2" alt="Bungalow vue" />
-          <div class="overlay"><svg class="gal-zoom" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+        <h3>Expérience</h3>
+        <p>Des années d'expertise dans le tourisme malgache et international, avec des guides certifiés sur le terrain.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <div class="why-icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
-        <div class="gal-item g3">
-          <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/607250550_1410688200759089_3251627829136163927_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFxhGwJ_hPs2CfqWw_TMnIYP29sk-CvHCg_b2yT4K8cKOJ1HPvukd9Ww2HS8W5JiDHVvNUOK2hS1EnAmbxopYPl&_nc_ohc=lxy1NjZrR-MQ7kNvwF0i-FG&_nc_oc=Adr1UhirXOKlbid1Vutf3dk1vQ3Rl1ALDR6znMPqmv7zU0XQbnhd2zyh8D6OAE1k3PA&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=X57xIP6-rHJFghNV5JwsRg&_nc_ss=7a32e&oh=00_AfyHSqZvjXrqAjwDTYwV59pD5EHfIJV1YX-8LjZmADWXVw&oe=69C8069F" alt="Environnement tropical" />
-          <div class="overlay"><svg class="gal-zoom" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+        <h3>Réseau international</h3>
+        <p>Partenariats solides avec des agences agréées à travers le monde pour des voyages sans frontières.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">04</div>
+        <div class="why-icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
-        <div class="gal-item g4">
-          <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/605633681_1410688090759100_2928498703987762567_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEuZ518dgaw86OxLCB3b5aGN0cIqxj6lTc3RwirGPqVN4bySKrITFmq6uxw7-fFX-27jtkRzziBbvU2xGrW441a&_nc_ohc=0RK0SDWVm14Q7kNvwGv5dXD&_nc_oc=AdoCaUyBazEtSNqsSUXZl5Z9vuKL9X_mYmNyRWuHXjkBec5yn6aON9271sH9QUlNuG8&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=Q6S3g6i3gIalZY_J576ODg&_nc_ss=7a32e&oh=00_Afz8tdbTar81OvWS3O_jpQhZY25Zs5rifbEHian04Aft_Q&oe=69C82B6B" alt="Hébergement Foulpointe" />
-          <div class="overlay"><svg class="gal-zoom" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-        </div>
-        <div class="gal-item g5">
-          <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/605772600_1410688004092442_3017654107220930705_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeF6ou-gUuh6VJmO7OIP6hoBj7BtiK_Cd3WPsG2Ir8J3daajG1Nd833rM7_zuI9NsMrBNypEFxSKQG-cpGkk9NhB&_nc_ohc=kCIjhCKKHGUQ7kNvwFq0q1H&_nc_oc=Adq3qJOy-mqFfgodIHWBCIpjhTFlmO9XlVlwHBYOncUEYXkQJcOl85YEZPfWt1yqWZw&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=Xzrb1T3CviWinXkyRlMX0w&_nc_ss=7a32e&oh=00_Afwmf8Gd-gK_NSMXT-3mpWdrxw-YdIKe61OjTHDVrWHdKA&oe=69C8150D" alt="Séjour Madagascar" />
-          <div class="overlay"><svg class="gal-zoom" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-        </div>
-        <div class="gal-item g6">
-          <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/605553059_1410688097425766_6288982547926708992_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHz1ShXnjERGqZ6hpzAn6yNIJnNg4-j3eYgmc2Dj6Pd5rUvLT-oOM42810jy9fln7cmjFbq6Fe3ix5H63mzzXd5&_nc_ohc=zQ7pAY_3bhkQ7kNvwFoX8sj&_nc_oc=AdoLIYPCPmQZfqj3qzzKeC91ZcMYiCYQtCUnEpXlN_qXM9Y-PNbr5AWV2603nefM4QU&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=W8M2kSBEfgxtHKtEUx6IzQ&_nc_ss=7a32e&oh=00_AfxBL9eNiC8cMM99JDboyO-poYTnMTHa0seleyJ2opR55A&oe=69C80FD8" alt="Détente Foulpointe" />
-          <div class="overlay"><svg class="gal-zoom" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-        </div>
-        <div class="gal-item g7">
-          <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/607971419_1410687357425840_2539636956319507396_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHypQbx046WUR5mIEIyDWmQv9vw7AlhG6i_2_DsCWEbqP5M5SGsKzsZ7-ed0idLJL-QmxOl9UX1Wcd_CIzsiAIh&_nc_ohc=7Lq6Bt48j9gQ7kNvwHmViLm&_nc_oc=AdpQkoIWuNdHVMNOMMpg6QwY4esATGQoQC6H9cJmtShLJqOlhjooyQk7fvn6vkV6_C0&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=SCz0G34gQDiHe2rPVQj3vA&_nc_ss=7a32e&oh=00_AfzaxOXVf9x2352RDpC-zgtQM6-nLnsrfxiq9fHZa3bYBg&oe=69C820A1" alt="Bungalow TROIS A Soleil" />
-          <div class="overlay"><svg class="gal-zoom" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-        </div>
-        <div class="gal-item g8">
-          <img src="https://scontent.ftnr2-2.fna.fbcdn.net/v/t39.30808-6/586211534_1382171346944108_5206956688517314165_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeH2p2WdKQAYyYj9Etg_VfbY8tAWuaoTRPTy0Ba5qhNE9OSODiOFPZd9-H1QF_iJqtddZP1LKMcHBQWu5ewJwMWe&_nc_ohc=tv-X3ZpkzW8Q7kNvwGoRWHH&_nc_oc=Adr-EEIN_ZBj0xM_ags1MA15Z_2-HD2Rpd8hqGLA7Zr45UW3ihWHHi-WBw1eHImz0Qg&_nc_zt=23&_nc_ht=scontent.ftnr2-2.fna&_nc_gid=Pr1Xy8XNcdSevdpI-Xw38g&_nc_ss=7a32e&oh=00_AfwHjJRGUX6tzUSgxZkiy5WPvAPRmTYNg6rqI5-RQ_uoQQ&oe=69C82FAF" alt="Nature Madagascar" />
-          <div class="overlay"><svg class="gal-zoom" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-        </div>
+        <h3>Service personnalisé</h3>
+        <p>Chaque voyage est unique, comme vous. Nous créons des expériences sur mesure qui correspondent à vos rêves.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <div class="container">
-      <span class="section-label">Avis Clients</span>
-      <h2>Ce que disent nos hôtes</h2>
-      <div class="testi-grid">
-        <div class="testi-card reveal">
-          <div class="stars">★★★★★</div>
-          <p>"Un séjour absolument magnifique ! Le bungalow était spacieux et propre, le personnel accueillant. La plage est à couper le souffle. On reviendra sans hésiter !"</p>
-          <div class="testi-author">
-            <div class="testi-avatar">R</div>
-            <div class="testi-info"><strong>Ravo & Famille</strong><span>Antananarivo, Madagascar</span></div>
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="container">
+    <div class="fade-up" style="max-width:560px;margin-bottom:0">
+      <div class="section-eyebrow">Parlons voyage</div>
+      <h2 class="section-title">Contactez-<em>nous</em></h2>
+      <p class="section-desc">Prêt à partir ? Notre équipe est disponible pour construire votre voyage idéal. Écrivez-nous ou appelez directement.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <div class="contact-item">
+          <div class="contact-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77A16 16 0 0 0 16 16.82l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z"/></svg>
+          </div>
+          <div>
+            <h4>Téléphone</h4>
+            <a href="tel:+261328767481">032 87 674 81</a>
           </div>
         </div>
-        <div class="testi-card reveal reveal-delay-1">
-          <div class="stars">★★★★★</div>
-          <p>"Nous étions 8 amis pour un weekend. Le grand bungalow était parfait. L'emplacement sur la côte est de Madagascar est vraiment exceptionnel."</p>
-          <div class="testi-author">
-            <div class="testi-avatar">T</div>
-            <div class="testi-info"><strong>Thomas G.</strong><span>Réunion, France</span></div>
+        <div class="contact-item">
+          <div class="contact-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <div>
+            <h4>Adresse</h4>
+            <p>Lot II B 51 R Tsarahasina Ambohimangakely<br>Antananarivo, Madagascar (102)</p>
           </div>
         </div>
-        <div class="testi-card reveal reveal-delay-2">
-          <div class="stars">★★★★☆</div>
-          <p>"Cadre idyllique, nature préservée, accueil chaleureux. TROIS A Soleil Foulpointe est une vraie pépite cachée sur la côte malgache. À découvrir absolument !"</p>
-          <div class="testi-author">
-            <div class="testi-avatar">M</div>
-            <div class="testi-info"><strong>Marie & Pierre</strong><span>Paris, France</span></div>
+        <div class="contact-item">
+          <div class="contact-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:contact@natheavoyages.mg">contact@natheavoyages.mg</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <h4>Horaires</h4>
+            <p>Lundi – Vendredi : 8h00 – 17h00<br>Samedi : 9h00 – 13h00</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <span class="section-label">Nous Contacter</span>
-          <h2>Réservez votre<br /><em>séjour de rêve</em></h2>
-          <div class="section-divider"></div>
-          <p>Notre équipe est disponible pour répondre à toutes vos questions et vous aider à planifier un séjour inoubliable à Foulpointe.</p>
-          <div class="contact-items">
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.15 6.15l.98-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </div>
-              <div class="contact-item-text">
-                <strong>WhatsApp & Téléphone</strong>
-                <a href="https://wa.me/261341810248">034 18 102 48</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </div>
-              <div class="contact-item-text">
-                <strong>Email</strong>
-                <a href="/cdn-cgi/l/email-protection#7c14190e1512151d15121d1312150f131d3c1b111d1510521f1311"><span class="__cf_email__" data-cfemail="6d05081f0403040c04030c0203041e020c2d0a000c0401430e0200">[email&#160;protected]</span></a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <div class="contact-item-text">
-                <strong>Adresse</strong>
-                <p>Mahavelona Foulpointe, Madagascar</p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              </div>
-              <div class="contact-item-text">
-                <strong>Disponibilité</strong>
-                <p>Lundi – Dimanche : 7h00 – 21h00</p>
-              </div>
-            </div>
-          </div>
-          <div class="map-embed">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59876.36!2d49.5!3d-17.68!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21fc7ed3e3c3c3b1%3A0x0!2sFoulpointe%2C%20Madagascar!5e0!3m2!1sfr!2smg!4v1700000000000"
-              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-              title="TROIS A Soleil Foulpointe sur Google Maps">
-            </iframe>
-          </div>
-        </div>
-        <div class="contact-form-wrap reveal reveal-delay-2">
-          <span class="section-label">Formulaire</span>
-          <h3>Envoyez-nous<br /><em>un message</em></h3>
-          <div class="section-divider"></div>
-          <p>Remplissez ce formulaire et nous vous répondrons dans les plus brefs délais.</p>
-          <form id="contactForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="prenom">Prénom</label>
-                <input type="text" id="prenom" placeholder="Votre prénom" required />
-              </div>
-              <div class="form-group">
-                <label for="nom">Nom</label>
-                <input type="text" id="nom" placeholder="Votre nom" required />
-              </div>
+      <div class="contact-form-wrap fade-up">
+        <div class="form-title">Envoyez-nous un message</div>
+        <div class="form-subtitle">Nous vous répondons dans les 24 heures ouvrables.</div>
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Prénom *</label>
+              <input type="text" id="fname" name="fname" placeholder="Jean" required />
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" placeholder="votre@email.com" required />
+              <label for="lname">Nom *</label>
+              <input type="text" id="lname" name="lname" placeholder="Dupont" required />
             </div>
-            <div class="form-group">
-              <label for="telephone">Téléphone / WhatsApp</label>
-              <input type="tel" id="telephone" placeholder="+261 XX XX XXX XX" />
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="arrivee">Date d'arrivée</label>
-                <input type="date" id="arrivee" />
-              </div>
-              <div class="form-group">
-                <label for="depart">Date de départ</label>
-                <input type="date" id="depart" />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="personnes">Nombre de personnes</label>
-              <select id="personnes">
-                <option value="">Sélectionner</option>
-                <option>1–2 personnes</option>
-                <option>3–4 personnes</option>
-                <option>5–6 personnes</option>
-                <option>7–8 personnes</option>
-                <option>9+ personnes</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" placeholder="Décrivez votre séjour idéal, posez vos questions…"></textarea>
-            </div>
-            <button type="submit" class="btn-submit">Envoyer ma demande</button>
-          </form>
-          <div class="form-success" id="formSuccess">
-            <p>✅ <strong>Message envoyé !</strong><br />Nous vous contacterons très prochainement. À très bientôt à Foulpointe !</p>
           </div>
+          <div class="form-group">
+            <label for="email">Adresse email *</label>
+            <input type="email" id="email" name="email" placeholder="jean.dupont@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Téléphone</label>
+            <input type="tel" id="phone" name="phone" placeholder="+261 XX XXX XXX" />
+          </div>
+          <div class="form-group">
+            <label for="service">Type de voyage</label>
+            <select id="service" name="service">
+              <option value="">Sélectionner un service…</option>
+              <option>Voyage sur mesure</option>
+              <option>Réceptif Madagascar</option>
+              <option>Réservation hôtel / circuit</option>
+              <option>Assistance voyage</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" placeholder="Décrivez votre projet de voyage, dates, nombre de personnes…" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Envoyer le message
+          </button>
+        </form>
+        <div class="success-msg" id="successMsg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:block;margin:0 auto"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+          <br>Message envoyé avec succès !<br>
+          <span style="font-weight:400;color:var(--gray);font-size:0.85rem">Notre équipe vous contactera dans les plus brefs délais.</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="brand">TROIS A Soleil</div>
-        <div class="sub">Foulpointe · Madagascar</div>
-        <p>Un havre de paix sur la côte est de Madagascar, où la beauté tropicale rencontre l'hospitalité malgache.</p>
+        <a href="#" class="logo" style="text-decoration:none">
+          <div class="logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <div class="logo-text">
+            <span class="logo-main">Nathéa Voyages</span>
+            <span class="logo-sub">Travel Planner & Réceptif</span>
+          </div>
+        </a>
+        <p class="footer-desc">Agence de voyage agréée basée à Antananarivo, spécialisée dans l'organisation de voyages sur mesure et le réceptif touristique à Madagascar. Votre partenaire de confiance pour des voyages mémorables.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.12 1.524 5.851L0 24l6.303-1.501A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0m0 21.818a9.814 9.814 0 0 1-5.004-1.371l-.36-.213-3.738.889.931-3.617-.236-.374A9.79 9.79 0 0 1 2.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
       </div>
+
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
           <li><a href="#accueil">Accueil</a></li>
-          <li><a href="#apropos">À Propos</a></li>
-          <li><a href="#hebergements">Bungalows</a></li>
-          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#apropos">À propos</a></li>
+          <li><a href="#services">Nos services</a></li>
+          <li><a href="#destinations">Destinations</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h4>Services</h4>
         <ul>
-          <li><a href="https://wa.me/261341810248"><svg style="width:13px;height:13px;vertical-align:middle;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.15 6.15l.98-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>034 18 102 48</a></li>
-          <li><a href="/cdn-cgi/l/email-protection#9df5f8eff4f3f4fcf4f3fcf2f3f4eef2fcddfaf0fcf4f1b3fef2f0"><svg style="width:13px;height:13px;vertical-align:middle;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</a></li>
-          <li><a href="#contact"><svg style="width:13px;height:13px;vertical-align:middle;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Mahavelona Foulpointe</a></li>
+          <li><a href="#services">Voyage sur mesure</a></li>
+          <li><a href="#services">Réceptif Madagascar</a></li>
+          <li><a href="#services">Réservation hôtels</a></li>
+          <li><a href="#services">Circuits guidés</a></li>
+          <li><a href="#services">Assistance voyage</a></li>
         </ul>
       </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77A16 16 0 0 0 16 16.82l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z"/></svg>
+          032 87 674 81
+        </div>
+        <div class="footer-contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          contact@natheavoyages.mg
+        </div>
+        <div class="footer-contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Lot II B 51 R Tsarahasina,<br>Ambohimangakely, Antananarivo 102
+        </div>
+      </div>
     </div>
+
     <div class="footer-bottom">
-      <p>© 2025 TROIS A Soleil Foulpointe · Tous droits réservés</p>
-      <p>Made with <svg style="width:12px;height:12px;fill:#e07b54;display:inline;vertical-align:middle" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> à Madagascar</p>
+      <span>© 2025 Nathéa Voyages. Tous droits réservés.</span>
+      <span>Agence agréée – Licence B · Madagascar</span>
+      <span>
+        <a href="#">Politique de confidentialité</a> &nbsp;·&nbsp;
+        <a href="#">Mentions légales</a>
+      </span>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <!-- WHATSAPP FLOATING -->
-  <a href="https://wa.me/261341810248?text=Bonjour%20TROIS%20A%20Soleil%20Foulpointe%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20vos%20bungalows." target="_blank" class="whatsapp-float" aria-label="Contacter sur WhatsApp">
-    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16.004 2.667C8.636 2.667 2.667 8.637 2.667 16.004c0 2.358.622 4.672 1.806 6.705L2.667 29.333l6.79-1.779a13.292 13.292 0 0 0 6.547 1.717h.006c7.367 0 13.323-5.97 13.323-13.337 0-3.56-1.386-6.907-3.903-9.421a13.24 13.24 0 0 0-9.426-3.846zm0 24.25a11.012 11.012 0 0 1-5.62-1.54l-.402-.24-4.031 1.057 1.075-3.926-.264-.407A11.024 11.024 0 0 1 5 16.004C5 9.923 9.923 5 16.004 5c2.945 0 5.712 1.147 7.794 3.23a10.958 10.958 0 0 1 3.225 7.78c0 6.085-4.936 11.007-11.019 11.007zm6.04-8.247c-.332-.165-1.962-.967-2.264-1.077-.302-.11-.52-.165-.74.165s-.851 1.077-1.043 1.298c-.192.22-.385.248-.717.083-.332-.165-1.4-.515-2.667-1.644-.985-.879-1.65-1.964-1.843-2.296-.192-.332-.02-.511.145-.676.148-.148.332-.386.497-.579.165-.193.22-.332.33-.553.11-.22.055-.414-.028-.58-.083-.165-.74-1.78-1.013-2.44-.267-.64-.537-.554-.74-.564-.192-.009-.413-.011-.634-.011s-.579.083-.883.414c-.303.331-1.155 1.129-1.155 2.75s1.183 3.189 1.348 3.411c.165.22 2.327 3.555 5.639 4.985.787.34 1.402.543 1.881.695.79.25 1.51.215 2.079.13.634-.094 1.962-.803 2.237-1.578.275-.775.275-1.439.192-1.578-.082-.138-.302-.22-.634-.385z"/>
-    </svg>
-    <span class="whatsapp-tooltip">Discuter sur WhatsApp</span>
-  </a>
+<script>
+  // ─── NAVBAR SCROLL ───
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // NAV SCROLL
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
-    });
+  // ─── MOBILE MENU ───
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    // MOBILE MENU
-    const toggle = document.getElementById('navToggle');
-    const menu = document.getElementById('navMenu');
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('open');
-      const spans = toggle.querySelectorAll('span');
-      if (menu.classList.contains('open')) {
-        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-      } else {
-        spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+  hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+  mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  mobileLinks.forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  // ─── SCROLL ANIMATIONS ───
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
       }
     });
-    menu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        menu.classList.remove('open');
-        toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-      });
-    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 
-    // SCROLL REVEAL
-    const reveals = document.querySelectorAll('.reveal');
-    if ('IntersectionObserver' in window) {
-      reveals.forEach(r => r.classList.add('hidden'));
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.remove('hidden');
-            e.target.classList.add('visible');
-            observer.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.08 });
-      reveals.forEach(r => observer.observe(r));
+  document.querySelectorAll('.fade-up, .stagger').forEach(el => observer.observe(el));
+
+  // ─── COUNTER ANIMATION ───
+  function animateCounters() {
+    document.querySelectorAll('.stat-num').forEach(el => {
+      const target = parseInt(el.textContent.replace(/\D/g, ''));
+      const suffix = el.textContent.replace(/[\d]/g, '');
+      let current = 0;
+      const step = target / 60;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) { current = target; clearInterval(timer); }
+        el.textContent = Math.floor(current) + suffix;
+      }, 20);
+    });
+  }
+
+  const statsBar = document.querySelector('.stats-bar');
+  const statsObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      animateCounters();
+      statsObserver.disconnect();
     }
-    // Fallback: if page loaded with scroll already down, reveal all visible
-    window.addEventListener('load', () => {
-      reveals.forEach(r => {
-        const rect = r.getBoundingClientRect();
-        if (rect.top < window.innerHeight) {
-          r.classList.remove('hidden');
-          r.classList.add('visible');
-        }
-      });
-    });
+  }, { threshold: 0.5 });
+  statsObserver.observe(statsBar);
 
-    // CONTACT FORM
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const prenom = document.getElementById('prenom').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
-      const tel = document.getElementById('telephone').value;
-      const arrivee = document.getElementById('arrivee').value;
-      const personnes = document.getElementById('personnes').value;
+  // ─── CONTACT FORM ───
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.btn-submit');
+    btn.textContent = 'Envoi en cours…';
+    btn.disabled = true;
+    setTimeout(() => {
+      this.style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    }, 1400);
+  });
 
-      // Build WhatsApp message
-      let wa = `Bonjour TROIS A Soleil Foulpointe !%0A%0ANom : ${prenom}%0AEmail : ${email}`;
-      if (tel) wa += `%0ATél : ${tel}`;
-      if (arrivee) wa += `%0AArrivée : ${arrivee}`;
-      if (personnes) wa += `%0APersonnes : ${personnes}`;
-      if (message) wa += `
+  // ─── HERO BG PARALLAX (subtle) ───
+  window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero-bg');
+    const scrolled = window.scrollY;
+    if (scrolled < window.innerHeight) {
+      hero.style.transform = `scale(1.04) translateY(${scrolled * 0.18}px)`;
+    }
+  });
+</script>
+</body>
+</html>
